@@ -71,7 +71,9 @@ describe("Context", function() {
 	});
   });
 
-  describe("schema.org Context", function() {
+  // Schema.org no longer supports content negotiation
+
+  /* describe("schema.org Context", function() {
 	it("Can undersdand indirection", async function () {
 	  this.timeout(15000); 
 	  // No Dataset
@@ -81,10 +83,8 @@ describe("Context", function() {
 	  await crate.resolveContext();
 	  assert.equal(crate.resolveTerm("name"), "http://schema.org/name")
 	  assert.equal(crate.resolveTerm("@vocab"), "http://schema.org/")
-
-
 	});
-  });
+  }); */
 
 describe("Basic graph item operations", function() {
 	const graph = [
@@ -146,6 +146,27 @@ describe("IDs and identifiers", function() {
 		expect(crate.graph).to.have.lengthOf(N + 2) //+1 Cos of root metdata file descriptor;
 	});
 
+	it("can cope with legcy datasets", function () {
+		const roCrateMetadataID = "ro-crate-metadata.jsonld";
+		const json_ld = {
+			"@context": defaults.context,
+			"@graph":  [
+				{
+					"@type": "Dataset",
+					"@id": "./",
+					},
+					{
+						"@type": "CreativeWork",
+						"@id": roCrateMetadataID,
+						"identifier": roCrateMetadataID,
+						"about": {"@id": "./"}
+					}
+				]
+		}
+		const crate = newCrate();
+		crate.index();
+		expect(crate.getRootId()).to.equal("./");
+	});
 
 	it("can add an identifier to the root dataset", function() {
 		const crate = newCrate();
