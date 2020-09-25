@@ -146,6 +146,37 @@ describe("IDs and identifiers", function() {
 		expect(crate.graph).to.have.lengthOf(N + 2) //+1 Cos of root metdata file descriptor;
 	});
 
+	it("Can resolve stuff", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		const crate = new ROCrate(json);
+		crate.index();
+		crate.addBackLinks();
+		const root = crate.getRootDataset();
+		const results = crate.resolve(root, [{"property": "creator"}]);
+		expect(results[0].name).to.equal("Peter Sefton");
+		const actions = crate.resolve(root, [{"property": "creator"}, {"@reverse": true, "property": "agent"}]);
+		expect(actions.length).to.equal(2);
+		expect(actions[0].name).to.equal("Took dog picture");
+
+		const newAction = {
+			"@id": "#1",
+			"@type": "UpdateAction",
+			"agent": { '@id': 'http://orcid.org/0000-0002-3545-944X'}
+		}
+		crate.addItem(newAction);
+		crate.addBackLinks();
+
+		const upActions = crate.resolve(root, [
+				{"property": "creator"}, 
+				{"@reverse": true, "property": "agent", "includes": {"@type": "UpdateAction"}}
+			]);
+		expect(upActions.length).to.equal(1);
+
+		
+		}
+		
+	);
+
 	it("can cope with legcy datasets", function () {
 		const roCrateMetadataID = "ro-crate-metadata.jsonld";
 		const json_ld = {
