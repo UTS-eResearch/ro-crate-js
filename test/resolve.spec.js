@@ -38,10 +38,13 @@ const COURTS = [
 	"#place_RICHMOND PETTY SESSIONS"
 ];
 
+const COUNT_FORS = 3;
+const COUNT_SEOS = 2;
+const COUNT_INCLUDERS = 2;
 
 describe("Resolving linked items with multiple values", function() {
 
-	it("Can resolve multiple links two hops from an item", async function () {
+	it("can resolve multiple links two hops from an item", async function () {
 		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-resolve.json"));
 		const crate = new ROCrate(json);
 		crate.index();
@@ -70,7 +73,7 @@ describe("Resolving linked items with multiple values", function() {
 	});
 
 
-	it("Can resolve multiple reverse links", async function () {
+	it("can resolve multiple reverse links", async function () {
 		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-resolve.json"));
 		const crate = new ROCrate(json);
 		crate.index();
@@ -107,5 +110,65 @@ describe("Resolving linked items with multiple values", function() {
 
 
 });
+
+
+describe("Conditional resolution with include", function() {
+
+	it("can resolve items of a particular type, via include", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-conditional.jsonld"));
+		const crate = new ROCrate(json);
+		crate.index();
+
+		const root = crate.getRootDataset();
+
+		const includers = crate.resolve(root, [ {
+			property: "hasPart",
+			includes: { "@type": "ImageObject" }
+		}]);
+
+		expect(includers).to.not.be.empty;
+		expect(includers.length).to.equal(COUNT_INCLUDERS);
+
+		for( let i of includers ) {
+			expect(i['@type']).to.equal('ImageObject');
+		}
+
+	});
+
+});
+
+
+
+
+describe("Conditional resolution with matchFn", function() {
+
+	it("can resolve items which match a regexp", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-conditional.jsonld"));
+		const crate = new ROCrate(json);
+		crate.index();
+
+		const root = crate.getRootDataset();
+
+		const for_codes = crate.resolve(root, [ {
+			property: "about",
+			matchFn: (item) => item['@id'].match(/anzsrc-for/)
+		}]);
+
+		const seo_codes = crate.resolve(root, [ {
+			property: "about",
+			matchFn: (item) => item['@id'].match(/anzsrc-seo/)
+		}]);
+
+		expect(for_codes).to.not.be.empty;
+		expect(for_codes.length).to.equal(COUNT_FORS);
+
+		expect(seo_codes).to.not.be.empty;
+		expect(seo_codes.length).to.equal(COUNT_SEOS);
+
+
+	});
+
+});
+
 
 
