@@ -55,7 +55,7 @@ describe("Simple tests", function () {
 });
 
 describe("Context", function() {
-	it("Test basic setup", async function () {
+	it("can read context", async function () {
 	  this.timeout(5000); 
 	  // No Dataset
 	  const crate = new ROCrate();
@@ -69,7 +69,29 @@ describe("Context", function() {
 
 
 	});
-  });
+
+	it("can return locally defined properties and classes", async function () {
+		this.timeout(5000); 
+		const j = fs.readFileSync("test_data/heurist_crate/ro-crate-metadata.json");
+		const crate = new ROCrate(JSON.parse(j));
+		crate.index();
+		
+		await crate.resolveContext();
+		assert.equal(crate.getDefinition("name")["@id"], "http://schema.org/name")
+		assert.equal(crate.getDefinition("Death")["rdfs:label"], "Death")
+		crate.json_ld["@context"][1]["new_term"] = "http://example.com/new_term"
+		await crate.resolveContext();
+		assert.equal(crate.getDefinition("new_term")["@id"], "http://example.com/new_term")
+		crate.addItem({"@id": "http://example.com/new_term", "sameAs": {"@id": "http://schema.org/name"}})
+		assert.equal(crate.getDefinition("new_term")["@id"], "http://schema.org/name")
+
+
+
+	
+		  });
+
+		});
+    
 
   // Schema.org no longer supports content negotiation
 
