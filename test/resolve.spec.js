@@ -172,3 +172,22 @@ describe("Conditional resolution with matchFn", function() {
 
 
 
+describe("Collect items when resolving links", function() {
+
+	it("can resolve multiple links two hops from an item", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-resolve.json"));
+		const crate = new ROCrate(json);
+		crate.index();
+		crate.addBackLinks();
+		const root = crate.getRootDataset();
+
+		const pItem = crate.getItem(PERSONID);
+		expect(pItem).to.not.be.empty;
+
+		const subgraph = crate.prune(pItem, [ { property: "conviction" }, { property: "location"} ]);
+
+		console.log(JSON.stringify(subgraph, null, 2));
+
+		expect(subgraph).to.not.be.empty;
+	});
+
