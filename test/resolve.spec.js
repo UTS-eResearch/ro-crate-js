@@ -174,7 +174,7 @@ describe("Conditional resolution with matchFn", function() {
 
 describe("Collect items when resolving links", function() {
 
-	it("can resolve multiple links two hops from an item", async function () {
+	it("generate a subgraph of all items traversed when resolving", async function () {
 		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-resolve.json"));
 		const crate = new ROCrate(json);
 		crate.index();
@@ -184,10 +184,25 @@ describe("Collect items when resolving links", function() {
 		const pItem = crate.getItem(PERSONID);
 		expect(pItem).to.not.be.empty;
 
-		const subgraph = crate.prune(pItem, [ { property: "conviction" }, { property: "location"} ]);
+		const convictions = crate.resolve(pItem, [ { property: "conviction" }] );
+		const courts = crate.resolve(pItem, [ { property: "conviction"}, { property: "location" }]);
 
-		console.log(JSON.stringify(subgraph, null, 2));
+		const subgraph = crate.subgraph(pItem, [ { property: "conviction" }, { property: "location"} ]);
 
 		expect(subgraph).to.not.be.empty;
+
+		// the subgraph should contain all of the convictions it traversed,
+		// and all of the locations, and nothing else
+
+		const c_ids = convictions.map((i) => i['@id']);
+		const cl_ids = courts.map((i) => i['@id']);
+
+		const sg_ids = subgraph.map((i) => i['@id']).sort();
+
+		const expect_ids = _.concat(c_ids, cl_ids).sort();
+		
+		expect(sg_ids).to.deep.equal(expect_ids);
+
 	});
 
+});
