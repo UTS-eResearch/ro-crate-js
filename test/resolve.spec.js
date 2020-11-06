@@ -187,9 +187,11 @@ describe("Collect items when resolving links", function() {
 		const convictions = crate.resolve(pItem, [ { property: "conviction" }] );
 		const courts = crate.resolve(pItem, [ { property: "conviction"}, { property: "location" }]);
 
-		const subgraph = crate.subgraph(pItem, [ { property: "conviction" }, { property: "location"} ]);
+		const [ items, subgraph ] = crate.resolveAll(pItem, [ { property: "conviction" }, { property: "location"} ]);
 
 		expect(subgraph).to.not.be.empty;
+
+		expect(items).to.not.be.empty;
 
 		// the subgraph should contain all of the convictions it traversed,
 		// and all of the locations, and nothing else
@@ -205,7 +207,7 @@ describe("Collect items when resolving links", function() {
 
 	});
 
-	it("collates and deduplicates a subgraph with common descendants", async function () {
+	it("collates and deduplicates subgraphs", async function () {
 
 		// the metaphor here is bad, or belongs to some alien plant where
 		// multiple branches can share a leaf? But that's the point so
@@ -279,8 +281,8 @@ describe("Collect items when resolving links", function() {
 				const trunk_b = crate.getItem(`#trunk${b}`);
 				expect(trunk_a).to.not.be.undefined;
 				expect(trunk_b).to.not.be.undefined;
-				const subgraph_a = crate.subgraph(trunk_a, [ { property: 'branches' }, { property: 'leaves'}]);
-				const subgraph_b = crate.subgraph(trunk_b, [ { property: 'branches' }, { property: 'leaves'}]);
+				const [items_a, subgraph_a] = crate.resolveAll(trunk_a, [ { property: 'branches' }, { property: 'leaves'}]);
+				const [items_b, subgraph_b] = crate.resolveAll(trunk_b, [ { property: 'branches' }, { property: 'leaves'}]);
 				expect(subgraph_a).to.not.be.null;
 				expect(subgraph_b).to.not.be.null;
 				
