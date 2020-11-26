@@ -20,8 +20,8 @@ const assert = require("assert");
 const _ = require('lodash');
 const expect = require("chai").expect;
 const ROCrate = require("../lib/rocrate");
-const jsonUtils = require("../lib/utils");
 const defaults = require("../lib/defaults");
+const jsonUtils = require("../lib/utils");
 const uuid = require('uuid').v4;
 
 const PERSONID = '#person___VICFP_18551934_14_8';
@@ -169,6 +169,169 @@ describe("Conditional resolution with matchFn", function() {
 	});
 
 });
+
+
+
+describe("Collect items when resolving links", function() {
+
+	it("generates a subgraph of all items traversed when resolving", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/ro-crate-metadata-resolve.json"));
+		const crate = new ROCrate(json);
+		crate.index();
+		crate.addBackLinks();
+		const root = crate.getRootDataset();
+
+		const pItem = crate.getItem(PERSONID);
+		expect(pItem).to.not.be.empty;
+
+		const convictions = crate.resolve(pItem, [ { property: "conviction" }] );
+		const courts = crate.resolve(pItem, [ { property: "conviction"}, { property: "location" }]);
+
+		const [ items, subgraph ] = crate.resolveAll(pItem, [ { property: "conviction" }, { property: "location"} ]);
+
+		expect(subgraph).to.not.be.empty;
+
+		expect(items).to.not.be.empty;
+
+		// the subgraph should contain all of the convictions it traversed,
+		// and all of the locations, and nothing else
+
+		const c_ids = convictions.map((i) => i['@id']);
+		const cl_ids = courts.map((i) => i['@id']);
+
+		const sg_ids = subgraph.map((i) => i['@id']).sort();
+
+		const expect_ids = _.concat(c_ids, cl_ids).sort();
+		
+		expect(sg_ids).to.deep.equal(expect_ids);
+
+	});
+
+	it("collates and deduplicates subgraphs", async function () {
+
+		// the metaphor here is bad, or belongs to some alien plant where
+		// multiple branches can share a leaf? But that's the point so
+		// that we can use dedupeSubgraph to merge them
+
+		const N_TRUNKS = 5;
+		const N_BRANCHES = 40;
+		const N_LEAVES = 30;
+		const leaves = [];
+		const branches = [];
+
+		const crate = new ROCrate({
+			'@context': defaults.context,
+			'@graph': [
+				defaults.metadataFileDescriptorTemplate,
+				{
+					'@id': './',
+					'@type': 'Dataset',
+					'name': 'Root',
+					'description': 'Root element',
+					'hasPart': '#trunk'
+				}
+			]
+		});
+
+		crate.index();
+
+
+		for( let i = 0; i < N_LEAVES; i++ ) {
+			const leaf = {
+				'@id': `#leaf${i}`,
+				'@type': 'Dataset',
+				'name': `Leaf ${i}`,
+				'description': 'A leaf'
+			}
+			leaves.push(leaf);
+			crate.addItem(leaf);
+		}
+
+		for( let i = 0 ; i < N_BRANCHES; i++ ) {
+			const leaf_ids = _.sampleSize(leaves, 5).map((i) => { return { "@id": i["@id"] } });
+			const branch = {
+				'@id': `#branch${i}`,
+				'@type': 'Dataset',
+				'name': `Branch ${i}`,
+				'description': 'A branch',
+				'leaves': leaf_ids
+			}
+			branches.push(branch);
+			crate.addItem(branch);
+		}
+
+		for( let i = 0; i < N_TRUNKS; i++ ) {
+			const branch_ids = _.sampleSize(branches, 5).map((i) => { return { "@id": i["@id"] } });
+			crate.addItem({
+				'@id': `#trunk${i}`,
+				'@type': 'Dataset',
+				'name': `Trunk ${i}`,
+				'description': 'A trunk',
+				'branches': branch_ids 
+			});
+		}
+
+		// create a subgraph for each pair (a, b) of trunks, merge them,
+		// and check that everything in a/b is in the subgraph, and that
+		// the subgraph has no duplicates
+
+		for( let a = 0; a < N_TRUNKS - 1; a++ ) {
+			for( let b = a; b < N_TRUNKS; b++ ) {
+				const trunk_a = crate.getItem(`#trunk${a}`);
+				const trunk_b = crate.getItem(`#trunk${b}`);
+				expect(trunk_a).to.not.be.undefined;
+				expect(trunk_b).to.not.be.undefined;
+				const [items_a, subgraph_a] = crate.resolveAll(trunk_a, [ { property: 'branches' }, { property: 'leaves'}]);
+				const [items_b, subgraph_b] = crate.resolveAll(trunk_b, [ { property: 'branches' }, { property: 'leaves'}]);
+				expect(subgraph_a).to.not.be.null;
+				expect(subgraph_b).to.not.be.null;
+				
+				const merged = crate.dedupeSubgraphs([ subgraph_a, subgraph_b ]);
+
+				const unique_ids = {};
+
+				for( let sg of [ subgraph_a, subgraph_b ] ) {
+					for( let item of sg ) {
+						if(! unique_ids[item['@id']] ) {
+							unique_ids[item['@id']] = 1;
+						}
+					}
+				}
+
+				// is every descendent of trunk a and trunk b in the subgraph?
+
+				for( let t of [ trunk_a, trunk_b ] ) {
+					for( let b of t.branches ) {
+						const branch = crate.getItem(b['@id']);
+						expect(branch).to.not.be.null;
+						expect(unique_ids).to.have.property(b['@id']);
+						for( let l of branch.leaves ) {
+							const leaf = crate.getItem(l['@id']);
+							expect(leaf).to.not.be.null;
+							expect(unique_ids).to.have.property(l['@id']);
+						}
+					}
+				}
+
+				// are any ids duplicated in the merged subgraph?
+
+				const dd_merge = _.uniqBy(merged, (i) => i['@id']);
+				expect(dd_merge.length).to.equal(merged.length);
+			}
+		}
+
+
+	});
+
+
+
+
+
+});
+
+
+
+
 
 
 
