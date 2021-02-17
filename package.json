@@ -1,13 +1,13 @@
 {
   "name": "ro-crate",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "Research Object Crate (RO-Crate) utilities for making and consuming crates",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "bin": {
-    "makehtml": "./makehtml.js"
+    "makehtml": "makehtml.js"
   },
   "repository": {
     "type": "git",
