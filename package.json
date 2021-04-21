@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "bin": {
-    "makehtml": "makehtml.js"
+    "roccheck": "roc-checker.js"
   },
   "repository": {
     "type": "git",
