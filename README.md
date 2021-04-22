@@ -23,13 +23,8 @@ This is produce a simple report.
 
 ## Programming
 
-TODO
+For instructions on how to use this module, see the [tutorials github repository](https://github.com/UTS-eResearch/ro-crate-js-tutorials).
 
-How to import
-
-How to load an existing ro-crate-metadata file and do stuff with it
-
-How to create a new RO-Crate and add stuff to it, write it out
 
 
 

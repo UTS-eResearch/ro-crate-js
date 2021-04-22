@@ -24,11 +24,9 @@ const outPath = program.outputPath ?  program.outputPath : crateDir;
 
 
 async function main() {
-    var md = ""
     const crate = new ROCrate(JSON.parse(await fs.readFile(path.join(crateDir, "ro-crate-metadata.jsonld"))));
     const checker = new Checker(crate);
     console.log(await checker.validate());
-    
   }
 
 main();
