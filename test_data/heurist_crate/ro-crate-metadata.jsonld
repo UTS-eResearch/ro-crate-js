@@ -1,0 +1,2509 @@
+{
+  "@context": [
+    "https://researchobject.github.io/ro-crate/1.0/context.jsonld",
+    {
+      "@vocab": "http://schema.org/"
+    },
+    {
+      "name_Title": "http://expertnation2020.uts.edu.au/vocab/#Property/2-1",
+      "place": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-78",
+      "Schooling": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-31",
+      "person_": "http://expertnation2020.uts.edu.au/vocab/#Property/2-16",
+      "educationalInstitution_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-97",
+      "sources": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-251",
+      "sourceDetailsFreeText": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-256",
+      "OccupationEventlet": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-37",
+      "occupationType": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-150",
+      "sector": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-205",
+      "MilitaryService": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-29",
+      "typeOfEvent": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-77",
+      "shortSummary": "http://expertnation2020.uts.edu.au/vocab/#Property/2-3",
+      "Eventlet": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-24",
+      "TertiaryStudy": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-27",
+      "degree_s_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-80",
+      "completed": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-120",
+      "originalText": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-207",
+      "rank": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-99",
+      "forceOrUnit": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-138",
+      "RecordRelationship": "http://expertnation2020.uts.edu.au/vocab/#Class/2-1",
+      "relationshipType": "http://expertnation2020.uts.edu.au/vocab/#Property/2-6",
+      "targetRecordPointer": "http://expertnation2020.uts.edu.au/vocab/#Property/2-5",
+      "degreeNotes": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-81",
+      "scholarshipAwards_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-121",
+      "Death": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-33",
+      "modeOfDeath": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-143",
+      "country": "http://expertnation2020.uts.edu.au/vocab/#Property/2-26",
+      "DigitalMediaItem": "http://expertnation2020.uts.edu.au/vocab/#Class/2-5",
+      "relatedFile": "http://expertnation2020.uts.edu.au/vocab/#Property/2-38",
+      "fileExtension": "http://expertnation2020.uts.edu.au/vocab/#Property/2-64",
+      "documentCategory": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-145",
+      "copyrightInformation": "http://expertnation2020.uts.edu.au/vocab/#Property/2-35",
+      "ScholarshipAwards": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-30",
+      "scholarships_awards": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-91",
+      "Person": "http://expertnation2020.uts.edu.au/vocab/#Class/2-10",
+      "givenNames": "http://expertnation2020.uts.edu.au/vocab/#Property/2-18",
+      "sex": "http://expertnation2020.uts.edu.au/vocab/#Property/2-20",
+      "initials": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-72",
+      "death": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-95",
+      "degrees_Sydney_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-102",
+      "birth": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-103",
+      "mappingTheAnzaca": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-104",
+      "bOREntry_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-112",
+      "basicInformationNeeded": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-148",
+      "occupation_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-151",
+      "universityConnections": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-196",
+      "survived": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-263",
+      "boREntryOCRText": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-134",
+      "earlyEducation_place_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-83",
+      "event_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-79",
+      "extendedDescription": "http://expertnation2020.uts.edu.au/vocab/#Property/2-4",
+      "thumbnailImage": "http://expertnation2020.uts.edu.au/vocab/#Property/2-39",
+      "universityRole": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-86",
+      "militaryService": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-88",
+      "religion": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-110",
+      "australianWarMemorial": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-116",
+      "multimedia_photo_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-135",
+      "documents": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-144",
+      "uRLs": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-108",
+      "shortName": "http://expertnation2020.uts.edu.au/vocab/#Property/2-2",
+      "geospatialObject": "http://expertnation2020.uts.edu.au/vocab/#Property/2-28",
+      "locationalCertainty": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-101",
+      "accuracy": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-131",
+      "excelID": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-128",
+      "geoSource": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-130",
+      "latitude_temp_": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-132",
+      "longitude_Temp": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-133",
+      "localityName": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-129",
+      "city": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-107",
+      "state": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-106"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "Description": "Export of Heurist XML dataset to RO-Crate",
+      "name": "ExpertNation Fragment RO-Crate demo",
+      "hasMember": [
+        {
+          "@id": "#Collection_Person"
+        },
+        {
+          "@id": "#Collection_Place"
+        },
+        {
+          "@id": "#Collection_EducationalOrganization"
+        },
+        {
+          "@id": "#Collection_Occupation"
+        },
+        {
+          "@id": "#Collection_OccupationSector"
+        }
+      ]
+    },
+    {
+      "@id": "ro-crate-metadata.jsonld",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "identifier": "ro-crate-metadata.jsonld"
+    },
+    {
+      "@id": "#Collection_Person",
+      "name": "Collection: Person",
+      "hasMember": [
+        {
+          "@id": "#https://expertnation2020.edu.au_1"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_2"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_3"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_4"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_5"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_6"
+        }
+      ],
+      "@type": "RepositoryCollection"
+    },
+    {
+      "@id": "#Collection_Place",
+      "name": "Collection: Place",
+      "hasMember": [
+        {
+          "@id": "#https://expertnation2020.edu.au_16"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_33"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_34"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_50"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_35"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_51"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_36"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_52"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_37"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_38"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_13"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_14"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_15"
+        }
+      ],
+      "@type": "RepositoryCollection"
+    },
+    {
+      "@id": "#Collection_EducationalOrganization",
+      "name": "Collection: EducationalOrganization",
+      "hasMember": [
+        {
+          "@id": "#https://expertnation2020.edu.au_32"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_48"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_49"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_25"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_26"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_28"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_29"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_30"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_46"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_31"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_47"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_27"
+        }
+      ],
+      "@type": "RepositoryCollection"
+    },
+    {
+      "@id": "#Collection_Occupation",
+      "name": "Collection: Occupation",
+      "hasMember": [
+        {
+          "@id": "#https://expertnation2020.edu.au_8261"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_7405"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_8380"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_6718"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_8262"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_8319"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_7770"
+        }
+      ],
+      "@type": "RepositoryCollection"
+    },
+    {
+      "@id": "#Collection_OccupationSector",
+      "name": "Collection: OccupationSector",
+      "hasMember": [
+        {
+          "@id": "#https://expertnation2020.edu.au_10421"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_10426"
+        },
+        {
+          "@id": "#https://expertnation2020.edu.au_10438"
+        }
+      ],
+      "@type": "RepositoryCollection"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-1",
+      "@type": "rdf:Property",
+      "name": "Name / Title",
+      "rdfs:comment": "Name or phrase used to identify the represented object/entity",
+      "rdfs:label": "name_Title"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-78",
+      "@type": "rdf:Property",
+      "name": "Place",
+      "rdfs:comment": "A pointer to a place or location record",
+      "rdfs:label": "place"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_32",
+      "name": "The Junction Public School, The Junction, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "The Junction Public School",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_38"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_48",
+      "name": "Sydney Teacher's College, Camperdown, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Sydney Teacher's College",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_52"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-31",
+      "@type": "rdfs:Class",
+      "name": "Schooling",
+      "rdfs:comment": "An episode of schooling with institution and dates",
+      "rdfs:label": "Schooling"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-16",
+      "@type": "rdf:Property",
+      "name": "Person >",
+      "rdfs:comment": "Record pointer constrained to person records",
+      "rdfs:label": "person_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-97",
+      "@type": "rdf:Property",
+      "name": "Educational institution >",
+      "rdfs:comment": "An educational institution, generally tertiary",
+      "rdfs:label": "educationalInstitution_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-251",
+      "@type": "rdf:Property",
+      "name": "Sources",
+      "rdfs:comment": "Where did you get this information from?",
+      "rdfs:label": "sources"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8589",
+      "@type": "Sources",
+      "name": "State Records NSW"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-256",
+      "@type": "rdf:Property",
+      "name": "Source Details free text",
+      "rdfs:comment": "Details on source of information. eg. URL, Collection & box number, newspaper title & date",
+      "rdfs:label": "sourceDetailsFreeText"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_17",
+      "name": "Colgan T.D. : Gannon's Creek Public School",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_25"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_49",
+      "name": "University of Sydney, Camperdown, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "University of Sydney",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_52"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_18",
+      "name": "Colgan T.D. : Huntington Public School",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_26"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-37",
+      "@type": "rdfs:Class",
+      "name": "Occupation eventlet",
+      "rdfs:comment": "A dated and/or spatially located fact about the occupation of a person",
+      "rdfs:label": "OccupationEventlet"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-150",
+      "@type": "rdf:Property",
+      "name": "Occupation type",
+      "rdfs:comment": "The type of occupation in an occupation eventlet",
+      "rdfs:label": "occupationType"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8261",
+      "@type": "Occupation",
+      "name": "Share-Farmer"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-205",
+      "@type": "rdf:Property",
+      "name": "Sector",
+      "rdfs:comment": "The broad sector in which an occupational event is situated, eg. law, medicine, commerce",
+      "rdfs:label": "sector"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10421",
+      "@type": "OccupationSector",
+      "name": "Agricultural,Pastoral,Forestry and Fishery"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8585",
+      "@type": "Sources",
+      "name": "National Library of Australia (incl. Trove Newspapers)"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_66",
+      "name": "Cobham R.S. : Share-Farmer",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_1"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_8261"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10421"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      },
+      "sourceDetailsFreeText": "HIS THREE ADDRESSES (1935, October 18). The Murrumbidgee Irrigator (Leeton, NSW : 1915 - 1954), p. 1. Retrieved May 28, 2018, from http://nla.gov.au/nla.news-article156026713"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_19",
+      "name": "Colgan T.D. : Pappinbarra Public School",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_28"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10426",
+      "@type": "OccupationSector",
+      "name": "Education-Primary & Secondary"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_7405",
+      "@type": "Occupation",
+      "name": "Headmaster"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_67",
+      "name": "Colgan T.D. : Headmaster",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10426"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_7405"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_20",
+      "name": "Colgan T.D. : St Patrick's College",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_31"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8380",
+      "@type": "Occupation",
+      "name": "Teacher"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_68",
+      "name": "Colgan T.D. : Teacher",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10426"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_8380"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8586",
+      "@type": "Sources",
+      "name": "not recorded"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_21",
+      "name": "Cornford H.W. : Newcastle High School",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_27"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8586"
+      },
+      "sourceDetailsFreeText": "n/a"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6718",
+      "@type": "Occupation",
+      "name": "Assistant Teacher"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_69",
+      "name": "Cornford H.W. : Assistant Teacher",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10426"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_6718"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_22",
+      "name": "Cornford H.W. : The Junction Public School",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_32"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-29",
+      "@type": "rdfs:Class",
+      "name": "Military service",
+      "rdfs:comment": "An episode of military service defined by a rank, company and period of service",
+      "rdfs:label": "MilitaryService"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-77",
+      "@type": "rdf:Property",
+      "name": "Type of event",
+      "rdfs:comment": "The type of event in an eventoid",
+      "rdfs:label": "typeOfEvent"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_9281",
+      "@type": "EventType",
+      "name": "Enlisted"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8584",
+      "@type": "Sources",
+      "name": "National Archives of Australia (incl. Discovering Anzacs)"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-3",
+      "@type": "rdf:Property",
+      "name": "Short summary",
+      "rdfs:comment": "Short summary or description of the object/entity",
+      "rdfs:label": "shortSummary"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_54",
+      "name": "Grieve A.C. : Enlisted",
+      "@type": "MilitaryService",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "sourceDetailsFreeText": "NAA\nhttps://recordsearch.naa.gov.au/SearchNRetrieve/Interface/ViewImage.aspx?B=4711553",
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9281"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8584"
+      },
+      "shortSummary": "Mr Grieve enlisted on 4/11/1918. 2 weeks later he was discharged. \nNot assigned to any unit."
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_70",
+      "name": "Cornford H.W. : Teacher",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_8380"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10426"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      },
+      "sourceDetailsFreeText": "TEACHERS IN CAMP (1939, November 15). The Cumberland Argus and Fruitgrowers Advocate (Parramatta, NSW : 1888 - 1950), p. 2. Retrieved April 5, 2018, from http://nla.gov.au/nla.news-article106201064"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-24",
+      "@type": "rdfs:Class",
+      "name": "Eventlet",
+      "rdfs:comment": "A dated and/or spatially located fact about a person eg. birth, death, burial",
+      "rdfs:label": "Eventlet"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_9140",
+      "@type": "EventType",
+      "name": "Birth"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8587",
+      "@type": "Sources",
+      "name": "Other"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_7",
+      "name": "Cobham R.S. : Birth - @ New Zealand [ New Zealand ]",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_1"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_15"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8587"
+      },
+      "sourceDetailsFreeText": "https://www.geni.com/people/Roger-Cobham/6000000025003980385"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_23",
+      "name": "Grieve A.C. : St Andrew",
+      "@type": "Schooling",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_30"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      },
+      "sourceDetailsFreeText": "1917 'ROSEWORTHY COLLEGE SCHOLARSHIPS.', The Register (Adelaide, SA : 1901 - 1929), 17 April, p. 4. , viewed 17 Jul 2017, http://nla.gov.au/nla.news-article59973899"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-27",
+      "@type": "rdfs:Class",
+      "name": "Tertiary study",
+      "rdfs:comment": "An instance of tertiary study at an institution, including dates and location. May also include incomplete courses",
+      "rdfs:label": "TertiaryStudy"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-80",
+      "@type": "rdf:Property",
+      "name": "Degree(s)",
+      "rdfs:comment": "The degree or degrees that the person obtained",
+      "rdfs:label": "degree_s_"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8613",
+      "@type": "Degrees",
+      "name": "Agricultural Science"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-120",
+      "@type": "rdf:Property",
+      "name": "Completed",
+      "rdfs:comment": "Flag whether a tertiary education qualification was completed",
+      "rdfs:label": "completed"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5442",
+      "@type": "Flag",
+      "name": "No"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8590",
+      "@type": "Sources",
+      "name": "University of Adelaide Archives"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_39",
+      "name": "Cobham R.S. : Agricultural Science, Roseworthy Agricultural College",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_1"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8613"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_46"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student record"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_55",
+      "name": "McLean D.R. : Enlisted",
+      "@type": "MilitaryService",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_5"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9281"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8586"
+      },
+      "sourceDetailsFreeText": "n/a"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-207",
+      "@type": "rdf:Property",
+      "name": "Original text",
+      "rdfs:comment": "Exact transcription of occupation reference",
+      "rdfs:label": "originalText"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8262",
+      "@type": "Occupation",
+      "name": "Sheep Farmer"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_71",
+      "name": "Grieve A.C. : Sheep Farmer - @ Naracoorte [ SA Australia ]",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "originalText": "Sheep-raising in Naracoorte",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_14"
+      },
+      "sourceDetailsFreeText": "University of Adelaide Archives Series 1020 - 'The Student' Magazine of Roseworthy Agricultural College, 1897-1988: \n-Vol 20 No 1 July 1920, http://hdl.handle.net/2440/74013\n\n-Vol 34 No1 1938, p 86, http://hdl.handle.net/2440/74196 \n\nNLA, TROVE1930, http://nla.gov.au/nla.news-article147073394\nNLA TROVE 1940 http://nla.gov.au/nla.news-article147035469\nNLA TROVE 1946 http://nla.gov.au/nla.news-article200109331",
+      "shortSummary": "From 1920 onwards, Mr Grieve stationed himself at Naracoorte. He had a property and raised sheep for wool. In 1930 his farm and livestock was offered for sale. in 1935, the Roseworthy magazine reported he was residing in Naracoorte. In 1938 the Student magazine reported he had a property in Naracoorte. His farming activities were disrupted in 1940 when he enlisted to serve in the army. His farm and animals were offered up to sale in 1940. Post WWII, he probably resumed sheep raising, there was newspaper advertisement of merino wool for sale from his farm at Naracoorte.",
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10421"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_8262"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8",
+      "name": "Colgan T.D. : Birth",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_24",
+      "name": "McNeil W.G. : Prince Alfred College",
+      "@type": "Schooling",
+      "shortSummary": "Passed Royal society Drawing Examination 1914",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_6"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_29"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      },
+      "sourceDetailsFreeText": "1914 'SPEECH DAYS.', The Journal (Adelaide, SA : 1912 - 1923), 18 December, p. 4. (4 P.M. EDITION), viewed 05 Feb 2019, http://nla.gov.au/nla.news-article210041380"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8707",
+      "@type": "Degrees",
+      "name": "Education"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8532",
+      "@type": "Flag",
+      "name": "Unknown 2"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_40",
+      "name": "Colgan T.D. : Education, Sydney Teacher's College",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_48"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8707"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_8532"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-99",
+      "@type": "rdf:Property",
+      "name": "Rank",
+      "rdfs:comment": "The rank of service",
+      "rdfs:label": "rank"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_9794",
+      "@type": "Rank",
+      "name": "Private"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-138",
+      "@type": "rdf:Property",
+      "name": "Force or Unit",
+      "rdfs:comment": "The force, unit or other military or civilian organisation in which service was carried out",
+      "rdfs:label": "forceOrUnit"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10146",
+      "@type": "MilitaryForceOrUnit",
+      "name": "A.I.F. Depots"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8576",
+      "@type": "Sources",
+      "name": "Australian War Memorial"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_56",
+      "name": "McNeil W.G. : Enlisted: Private",
+      "@type": "MilitaryService",
+      "shortSummary": "Private McNeil joined the AIF but was discharged a month later, reason was cessation of hostility.",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_6"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9281"
+      },
+      "rank": {
+        "@id": "#https://expertnation2020.edu.au_9794"
+      },
+      "forceOrUnit": {
+        "@id": "#https://expertnation2020.edu.au_10146"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8576"
+      },
+      "sourceDetailsFreeText": "Service Record \nNAA: B2455, MCNEIL W G, Series number: B2455, Barcode: 1957862, Title: McNeil Willam George : SERN DEPOT S15783"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8319",
+      "@type": "Occupation",
+      "name": "Stock Agent"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_72",
+      "name": "Grieve A.C. : Stock Agent - @ Naracoorte [ SA Australia ]",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "originalText": "\"with the firm of De Garis & Sons, stock agents, Naracoorte.\"",
+      "sourceDetailsFreeText": "University of Adelaide Archives Series 1020 - 'The Student' Magazine of Roseworthy Agricultural College, 1897-1988, Vol 23 No 1 March 1924\nhttp://hdl.handle.net/2440/74017",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_14"
+      },
+      "shortSummary": "Todate, the firm is still trading as \"DeGaris\"  in Naracoorte livestock exchange, see http://www.farmweekly.com.au/classifiedsimages/full/17665611.pdf",
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10421"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_8319"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_9",
+      "name": "Cornford H.W. : Birth",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_25",
+      "name": "Gannon's Creek Public School, Gannon's Creek, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Gannon's Creek Public School",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_34"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8638",
+      "@type": "Degrees",
+      "name": "Arts"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_41",
+      "name": "Cornford H.W. : Arts, University of Sydney",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_49"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191\nNo mention of which university degree.",
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8638"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_8532"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_57",
+      "name": "Colgan T.D. : Enlisted",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_2"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9281"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff card - 171"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_7770",
+      "@type": "Occupation",
+      "name": "Manager"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10438",
+      "@type": "OccupationSector",
+      "name": "Unknown"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_73",
+      "name": "McNeil W.G. : Manager",
+      "@type": "OccupationEventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_6"
+      },
+      "occupationType": {
+        "@id": "#https://expertnation2020.edu.au_7770"
+      },
+      "sector": {
+        "@id": "#https://expertnation2020.edu.au_10438"
+      },
+      "originalText": "Warehouse manager",
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student card"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10",
+      "name": "Grieve A.C. : Birth - @ Naracoorte [ SA Australia ]",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_14"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student Card"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_26",
+      "name": "Huntington Public School, Huntington, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Huntington Public School",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_35"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_42",
+      "name": "Cornford H.W. : Education, Sydney Teacher's College",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_48"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8707"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_8532"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_58",
+      "name": "Cornford H.W. : Enlisted",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9281"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8589"
+      },
+      "sourceDetailsFreeText": "Dept Education staff cards WWI - 191"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/2-1",
+      "@type": "rdfs:Class",
+      "name": "Record relationship",
+      "rdfs:comment": "A relationship of a defined type between two records in the database, may include a time range over which the relationship is valid, and notes about the relationship",
+      "rdfs:label": "RecordRelationship"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-6",
+      "@type": "rdf:Property",
+      "name": "Relationship type",
+      "rdfs:comment": "Term or term phrase representing the conceptual relationship between entities",
+      "rdfs:label": "relationshipType"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_3118",
+      "@type": "4_Family",
+      "name": "IsSiblingOf"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-5",
+      "@type": "rdf:Property",
+      "name": "Target record pointer",
+      "rdfs:comment": "Unconstrained pointer to the target linked record for a relationship.",
+      "rdfs:label": "targetRecordPointer"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_74",
+      "name": "IsSiblingOf : >> Cobham, R.S. (Roger Synnot)",
+      "@type": "RecordRelationship",
+      "relationshipType": {
+        "@id": "#https://expertnation2020.edu.au_3118"
+      },
+      "targetRecordPointer": {
+        "@id": "#https://expertnation2020.edu.au_1"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_11",
+      "name": "McLean D.R. : Birth - @ Victoria [ VIC Australia ]",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_5"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_16"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student record"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-81",
+      "@type": "rdf:Property",
+      "name": "Degree notes",
+      "rdfs:comment": "Notes on the degrees obtained",
+      "rdfs:label": "degreeNotes"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8627",
+      "@type": "AgriculturalScience",
+      "name": "Roseworthy Diploma in Agriculture RDA"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-121",
+      "@type": "rdf:Property",
+      "name": "Scholarship Awards >",
+      "rdfs:comment": "A pointer to a scholarship or award",
+      "rdfs:label": "scholarshipAwards_"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_43",
+      "name": "Grieve A.C. : Roseworthy Diploma in Agriculture RDA, Roseworthy Agricultural College",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "degreeNotes": "Roseworthy Diploma of Agriculture awarded March 1920.",
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_46"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8627"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student Register",
+      "scholarshipAwards_": {
+        "@id": "#https://expertnation2020.edu.au_53"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_9530",
+      "@type": "EventType",
+      "name": "Resigned from teaching service"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_59",
+      "name": "Cornford H.W. : Resigned from teaching service",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_3"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9530"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8585"
+      },
+      "sourceDetailsFreeText": "RETIREMENTS (1960, July 22). Government Gazette of the State of New South Wales (Sydney, NSW : 1901 - 2001), p. 2326. Retrieved April 5, 2018, from http://nla.gov.au/nla.news-article220314515"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_12",
+      "name": "McNeil W.G. : Birth - @ Melbourne [ VIC Australia ]",
+      "@type": "Eventlet",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_6"
+      },
+      "typeOfEvent": {
+        "@id": "#https://expertnation2020.edu.au_9140"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_13"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8584"
+      },
+      "sourceDetailsFreeText": "Service Record \nNAA: B2455, MCNEIL W G, Series number: B2455, Barcode: 1957862, Title: McNeil Willam George : SERN DEPOT S15783"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_28",
+      "name": "Pappinbarra Public School, Pappinbarra, NSW, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Pappinbarra Public School",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_36"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8858",
+      "@type": "Degrees",
+      "name": "Science"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_44",
+      "name": "McLean D.R. : Science, South Australian School of Mines and Industries",
+      "@type": "TertiaryStudy",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_5"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8858"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_47"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student record"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-33",
+      "@type": "rdfs:Class",
+      "name": "Death",
+      "rdfs:comment": "A dated and/or spatially located record of the death, burial and commemoration of a person",
+      "rdfs:label": "Death"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_60",
+      "name": "Cobham R.S. : Death",
+      "@type": "Death",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_1"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8587"
+      },
+      "sourceDetailsFreeText": "https://www.geni.com/people/Roger-Cobham/6000000025003980385"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_29",
+      "name": "Prince Alfred College, Adelaide, SA, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Prince Alfred College",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_37"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8615",
+      "@type": "AgriculturalScience",
+      "name": "Agr.Sci."
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_45",
+      "name": "McNeil W.G. : Agr.Sci., Roseworthy Agricultural College",
+      "@type": "TertiaryStudy",
+      "shortSummary": "Mr McNeil left his studies to enlist in the Australian Army during the First World War.",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_6"
+      },
+      "degree_s_": {
+        "@id": "#https://expertnation2020.edu.au_8615"
+      },
+      "educationalInstitution_": {
+        "@id": "#https://expertnation2020.edu.au_46"
+      },
+      "completed": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8590"
+      },
+      "sourceDetailsFreeText": "Student Record"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-143",
+      "@type": "rdf:Property",
+      "name": "Mode of death",
+      "rdfs:comment": "The way in which the person died",
+      "rdfs:label": "modeOfDeath"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_10960",
+      "@type": "ModeOfDeath",
+      "name": "Unknown"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_61",
+      "name": "Grieve A.C. : Death Unknown @ Naracoorte [ SA Australia ]",
+      "@type": "Death",
+      "shortSummary": "Date of interment, not death",
+      "person_": {
+        "@id": "#https://expertnation2020.edu.au_4"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_14"
+      },
+      "modeOfDeath": {
+        "@id": "#https://expertnation2020.edu.au_10960"
+      },
+      "sources": {
+        "@id": "#https://expertnation2020.edu.au_8587"
+      },
+      "sourceDetailsFreeText": "http://www.naracoortelucindale.sa.gov.au/page.aspx?u=616&c=43457"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_30",
+      "name": "St Andrew, Naracoorte, SA, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "St Andrew",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_14"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_46",
+      "name": "Roseworthy Agricultural College, Roseworthy, SA, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "Roseworthy Agricultural College",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_51"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_31",
+      "name": "St Patrick's College, Ballarat, VIC, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "St Patrick's College",
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_33"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-26",
+      "@type": "rdf:Property",
+      "name": "Country",
+      "rdfs:comment": "Term identifying the country associated with the object/entity",
+      "rdfs:label": "country"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_108",
+      "@type": "Country",
+      "name": "Australia"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_47",
+      "name": "South Australian School of Mines and Industries, Adelaide, SA, Australia",
+      "@type": "EducationalOrganization",
+      "name_Title": "South Australian School of Mines and Industries",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "place": {
+        "@id": "#https://expertnation2020.edu.au_50"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/2-5",
+      "@type": "rdfs:Class",
+      "name": "Digital media item",
+      "rdfs:comment": "Digital media files - typically image, sound, video - uploaded to the database or external reference",
+      "rdfs:label": "DigitalMediaItem"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-38",
+      "@type": "rdf:Property",
+      "name": "Related file",
+      "rdfs:comment": "An uploaded file or a reference to a file through a URI",
+      "rdfs:label": "relatedFile"
+    },
+    {
+      "@type": "File",
+      "name": "D2011 55157  Roseworthy College Student Card - Alexander Clayhills GRIEVE.pdf",
+      "encodingFormat": [
+        "application/pdf"
+      ],
+      "fileSize": "",
+      "@id": "7/D2011 55157  Roseworthy College Student Card - Alexander Clayhills GRIEVE.pdf",
+      "url": "https://heuristplus.sydney.edu.au/heurist/?db=ExpertNation&file=10d9aea7463c5c520cd837c99a11fac9db0410f2"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-64",
+      "@type": "rdf:Property",
+      "name": "File extension",
+      "rdfs:comment": "The (normally three letter) file extension",
+      "rdfs:label": "fileExtension"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-145",
+      "@type": "rdf:Property",
+      "name": "Document category",
+      "rdfs:comment": "A categorisation of the type of document represented by the multimedia item",
+      "rdfs:label": "documentCategory"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8550",
+      "@type": "DocumentCategories",
+      "name": "Student Card"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_64",
+      "name": "StudentCard-Grieve-AC [ pdf ]",
+      "@type": "DigitalMediaItem",
+      "name_Title": "StudentCard-Grieve-AC",
+      "hasFile": {
+        "@id": "7/D2011 55157  Roseworthy College Student Card - Alexander Clayhills GRIEVE.pdf"
+      },
+      "fileExtension": "pdf",
+      "documentCategory": {
+        "@id": "#https://expertnation2020.edu.au_8550"
+      }
+    },
+    {
+      "@type": "File",
+      "name": "_remote",
+      "encodingFormat": [
+        "application/octet-stream"
+      ],
+      "fileSize": "",
+      "@id": "https://recordsearch.naa.gov.au/SearchNRetrieve/Interface/ViewImage.aspx?B=4711553 "
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-35",
+      "@type": "rdf:Property",
+      "name": "Copyright information",
+      "rdfs:comment": "Copyright statement or a URI leading to a copyright statement. Consider using Creative Commons categories.",
+      "rdfs:label": "copyrightInformation"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8553",
+      "@type": "DocumentCategories",
+      "name": "War Service Record"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_65",
+      "name": "War Service Record-Grieve-AC [ pdf ]",
+      "@type": "DigitalMediaItem",
+      "name_Title": "War Service Record-Grieve-AC",
+      "hasFile": {
+        "@id": "https://recordsearch.naa.gov.au/SearchNRetrieve/Interface/ViewImage.aspx?B=4711553 "
+      },
+      "shortSummary": "23 pages, enlistment form and medical examination.",
+      "copyrightInformation": "NAA\nB2455, Grieve AC, Barcode 4711508.",
+      "fileExtension": "pdf",
+      "documentCategory": {
+        "@id": "#https://expertnation2020.edu.au_8553"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8548",
+      "@type": "DocumentCategories",
+      "name": "Photograph of person"
+    },
+    {
+      "@type": "File",
+      "name": "_remote",
+      "encodingFormat": [
+        "application/octet-stream"
+      ],
+      "fileSize": "",
+      "@id": "http://hdl.handle.net/2440/62721"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_62",
+      "name": "1919-20 Roseworthy Students [ jpeg ]",
+      "@type": "DigitalMediaItem",
+      "name_Title": "1919-20 Roseworthy Students",
+      "documentCategory": {
+        "@id": "#https://expertnation2020.edu.au_8548"
+      },
+      "hasFile": {
+        "@id": "http://hdl.handle.net/2440/62721"
+      },
+      "shortSummary": "Black and white photo, mounted with names",
+      "copyrightInformation": "University of Adelaide Archives Series 986 - Roseworthy Agricultural College Photographs, 1896-2005, Box 31",
+      "fileExtension": "jpeg"
+    },
+    {
+      "@type": "File",
+      "name": "SC Mclean, Donald Robert.JPG",
+      "encodingFormat": [
+        "image/jpeg"
+      ],
+      "fileSize": "",
+      "@id": "6/SC Mclean, Donald Robert.JPG",
+      "url": "https://heuristplus.sydney.edu.au/heurist/?db=ExpertNation&file=ece406ca07866292a7fa0f13ec413164802971a1"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_63",
+      "name": "Student Card [ jpg ]",
+      "@type": "DigitalMediaItem",
+      "name_Title": "Student Card",
+      "hasFile": {
+        "@id": "6/SC Mclean, Donald Robert.JPG"
+      },
+      "fileExtension": "jpg",
+      "documentCategory": {
+        "@id": "#https://expertnation2020.edu.au_8550"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/1125-30",
+      "@type": "rdfs:Class",
+      "name": "Scholarship awards",
+      "rdfs:comment": "Schoalrships and other educational awards",
+      "rdfs:label": "ScholarshipAwards"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-91",
+      "@type": "rdf:Property",
+      "name": "Scholarships/awards",
+      "rdfs:comment": "Scholarships and other awards received",
+      "rdfs:label": "scholarships_awards"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8921",
+      "@type": "AwardTypes",
+      "name": "Scholarship"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_53",
+      "name": "Government Scholarship (StudBioID)",
+      "@type": "ScholarshipAwards",
+      "name_Title": "Government Scholarship",
+      "scholarships_awards": {
+        "@id": "#https://expertnation2020.edu.au_8921"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Class/2-10",
+      "@type": "rdfs:Class",
+      "name": "Person",
+      "rdfs:comment": "A standard record for a person, may be expanded with additional information as required.",
+      "rdfs:label": "Person"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-18",
+      "@type": "rdf:Property",
+      "name": "Given names",
+      "rdfs:comment": "Name or name list additionally given to the represented object/entity ",
+      "rdfs:label": "givenNames"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-20",
+      "@type": "rdf:Property",
+      "name": "Sex",
+      "rdfs:comment": "Gender type",
+      "rdfs:label": "sex"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_414",
+      "@type": "Sex",
+      "name": "Male"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-72",
+      "@type": "rdf:Property",
+      "name": "Initials",
+      "rdfs:comment": "The person\\'s initials in the form A.B. (period after each inuitial including the last)",
+      "rdfs:label": "initials"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-95",
+      "@type": "rdf:Property",
+      "name": "Death",
+      "rdfs:comment": "Date, place and nature of death",
+      "rdfs:label": "death"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-102",
+      "@type": "rdf:Property",
+      "name": "Degrees (Sydney)",
+      "rdfs:comment": "The degrees taken by the person at Sydney University",
+      "rdfs:label": "degrees_Sydney_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-103",
+      "@type": "rdf:Property",
+      "name": "Birth",
+      "rdfs:comment": "Information about he person\\'s birth",
+      "rdfs:label": "birth"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-104",
+      "@type": "rdf:Property",
+      "name": "Mapping the Anzaca",
+      "rdfs:comment": "Link to entry in Mappign the Anzacs",
+      "rdfs:label": "mappingTheAnzaca"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-112",
+      "@type": "rdf:Property",
+      "name": "BOR Entry ",
+      "rdfs:comment": "BOR entry as identified by Rebecca in spreadsheet",
+      "rdfs:label": "bOREntry_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-148",
+      "@type": "rdf:Property",
+      "name": "Basic information needed",
+      "rdfs:comment": "Flags people who have limited information recorded for them, generally derived from the Univerity Compnay section of the Book of Remembrance.",
+      "rdfs:label": "basicInformationNeeded"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-151",
+      "@type": "rdf:Property",
+      "name": "Occupation >",
+      "rdfs:comment": "Pointer to an occupation eventlet record",
+      "rdfs:label": "occupation_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-196",
+      "@type": "rdf:Property",
+      "name": "University connections",
+      "rdfs:comment": "The university(ies) with which a person is connected",
+      "rdfs:label": "universityConnections"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6257",
+      "@type": "Universities",
+      "name": "UAdelaide"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-263",
+      "@type": "rdf:Property",
+      "name": "Survived",
+      "rdfs:comment": "Indicates whether the person survived the war",
+      "rdfs:label": "survived"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6454",
+      "@type": "Survivorship",
+      "name": "Survived"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_1",
+      "name": "Cobham, R.S. (Roger Synnot)",
+      "@type": "Person",
+      "name_Title": "Cobham",
+      "givenNames": "Roger Synnot",
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "initials": "R.S.",
+      "death": {
+        "@id": "#https://expertnation2020.edu.au_60"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_39"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_7"
+      },
+      "mappingTheAnzaca": "https://discoveringanzacs.naa.gov.au/browse/records/231809",
+      "bOREntry_": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "basicInformationNeeded": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "occupation_": {
+        "@id": "#https://expertnation2020.edu.au_66"
+      },
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6257"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-134",
+      "@type": "rdf:Property",
+      "name": "BoR Entry OCR text",
+      "rdfs:comment": "The text of the BoR entry from OCR",
+      "rdfs:label": "boREntryOCRText"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-83",
+      "@type": "rdf:Property",
+      "name": "Early education (place)",
+      "rdfs:comment": "The educational institution where the person was educated prior to university",
+      "rdfs:label": "earlyEducation_place_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-79",
+      "@type": "rdf:Property",
+      "name": "Event >",
+      "rdfs:comment": "An eventoid record describing some event in the person\\'s life",
+      "rdfs:label": "event_"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6264",
+      "@type": "USyd",
+      "name": "Sydney Teachers College"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_2",
+      "name": "Colgan, T.D. (Thomas Dominic)",
+      "@type": "Person",
+      "name_Title": "Colgan",
+      "givenNames": "Thomas Dominic",
+      "initials": "T.D.",
+      "boREntryOCRText": "Not listed in the Book of Remembrance or Sydney Teacher's College Rolls. He enlisted in March 1917 and served with the 6th A.L.H. Regiment and at Amman with 2nd M.G. Squadron. Wounded at Amman 28th March 1918 and invalided to hospital. Was demobilised in August 1919. Joined Sydney Teacher's College in 1920.",
+      "earlyEducation_place_": {
+        "@id": "#https://expertnation2020.edu.au_20"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_40"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_8"
+      },
+      "occupation_": {
+        "@id": "#https://expertnation2020.edu.au_67"
+      },
+      "event_": {
+        "@id": "#https://expertnation2020.edu.au_57"
+      },
+      "mappingTheAnzaca": "http://discoveringanzacs.naa.gov.au/browse/records/236647",
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6264"
+      },
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "basicInformationNeeded": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "bOREntry_": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6263",
+      "@type": "Universities",
+      "name": "USyd"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_3",
+      "name": "Cornford, H.W. (Harold Walton)",
+      "@type": "Person",
+      "name_Title": "Cornford",
+      "givenNames": "Harold Walton",
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "initials": "H.W.",
+      "event_": {
+        "@id": "#https://expertnation2020.edu.au_59"
+      },
+      "earlyEducation_place_": {
+        "@id": "#https://expertnation2020.edu.au_21"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_41"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_9"
+      },
+      "mappingTheAnzaca": "https://discoveringanzacs.naa.gov.au/browse/records/480020",
+      "bOREntry_": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "boREntryOCRText": "Not listed in the Book of Remembrance or Sydney Teacher's College Rolls. Enlisted 4th January 1915, and joined H.M.A. Training ship \"Tingira\". Sailed as Boy 1st Class on H.M.A.S. \"Encounter\". Served at Fantome Una, Melbourne, Brisbane, Marguerite, Platypus, Destroyer Flotilla, Sydney and Sleuth. Tookk part in the Malekula punitive Expedition. Was demobilised 31st December, 1924. Rejoined Teaching Service and mobilised as Petty Officer in Charge of Communications convoy.",
+      "basicInformationNeeded": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "occupation_": {
+        "@id": "#https://expertnation2020.edu.au_70"
+      },
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6264"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-4",
+      "@type": "rdf:Property",
+      "name": "Extended description",
+      "rdfs:comment": "Extended description of the object/entity",
+      "rdfs:label": "extendedDescription"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-39",
+      "@type": "rdf:Property",
+      "name": "Thumbnail image",
+      "rdfs:comment": "An image of approx. 200 pixels wide used to represent the record in search results and other compact listings",
+      "rdfs:label": "thumbnailImage"
+    },
+    {
+      "@type": "File",
+      "name": "photo.JPG",
+      "encodingFormat": [
+        "image/jpeg"
+      ],
+      "fileSize": "",
+      "@id": "4/photo.JPG",
+      "url": "https://heuristplus.sydney.edu.au/heurist/?db=ExpertNation&file=b4b96ce5159945a5384a35e051a2fd28b801247f"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-86",
+      "@type": "rdf:Property",
+      "name": "University role",
+      "rdfs:comment": "The role(s) the person had at the university",
+      "rdfs:label": "universityRole"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6406",
+      "@type": "RoleAtUni",
+      "name": "Office Bearer"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-88",
+      "@type": "rdf:Property",
+      "name": "Military service",
+      "rdfs:comment": "Rank and company of service",
+      "rdfs:label": "militaryService"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-110",
+      "@type": "rdf:Property",
+      "name": "Religion",
+      "rdfs:comment": "The declared religion of the person",
+      "rdfs:label": "religion"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6473",
+      "@type": "Religion",
+      "name": "Presbyterian"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-116",
+      "@type": "rdf:Property",
+      "name": "Australian War Memorial",
+      "rdfs:comment": "URL to record on Australian War Memorial web site",
+      "rdfs:label": "australianWarMemorial"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-135",
+      "@type": "rdf:Property",
+      "name": "Multimedia (photo)",
+      "rdfs:comment": "A multimedia item containing a photograph of the person",
+      "rdfs:label": "multimedia_photo_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-144",
+      "@type": "rdf:Property",
+      "name": "Documents",
+      "rdfs:comment": "Scans and other images of documents associated with the person",
+      "rdfs:label": "documents"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6258",
+      "@type": "UAdelaide",
+      "name": "Roseworthy Agricultural College"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_4",
+      "name": "Grieve, A.C. (Alexander Clayhills)",
+      "@type": "Person",
+      "name_Title": "Grieve",
+      "shortSummary": "Upon graduation, Mr Grieve was active in Naracoorte.1920 he was raising sheep; in 1924 he was working with the firm of DeGaris, livestock agents in Naracoorte. In 1930 he sold his property and livestock,but throughout 1930s and beyond,he was offering livestock and sheep wool for sale. He operated from Naracoorte. He was also active in Golf and the Caledonian Society. Source - Trove digitised newspapers.",
+      "extendedDescription": "Finance Committee 1918-19, RAC\n1938 - Committee member, South Eastern Sub-branch, Roseworthy Old Collegian' Association",
+      "givenNames": "Alexander Clayhills",
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "hasFile": {
+        "@id": "4/photo.JPG"
+      },
+      "initials": "A.C.",
+      "earlyEducation_place_": {
+        "@id": "#https://expertnation2020.edu.au_23"
+      },
+      "universityRole": {
+        "@id": "#https://expertnation2020.edu.au_6406"
+      },
+      "militaryService": {
+        "@id": "#https://expertnation2020.edu.au_54"
+      },
+      "death": {
+        "@id": "#https://expertnation2020.edu.au_61"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_43"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_10"
+      },
+      "religion": {
+        "@id": "#https://expertnation2020.edu.au_6473"
+      },
+      "australianWarMemorial": "https://vwma.org.au/explore/people/606645",
+      "multimedia_photo_": {
+        "@id": "#https://expertnation2020.edu.au_62"
+      },
+      "documents": {
+        "@id": "#https://expertnation2020.edu.au_65"
+      },
+      "occupation_": {
+        "@id": "#https://expertnation2020.edu.au_72"
+      },
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6257"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5",
+      "name": "McLean, D.R. (Donald Robert)",
+      "@type": "Person",
+      "name_Title": "McLean",
+      "givenNames": "Donald Robert",
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "initials": "D.R.",
+      "militaryService": {
+        "@id": "#https://expertnation2020.edu.au_55"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_44"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_11"
+      },
+      "bOREntry_": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "documents": {
+        "@id": "#https://expertnation2020.edu.au_63"
+      },
+      "basicInformationNeeded": {
+        "@id": "#https://expertnation2020.edu.au_5442"
+      },
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6257"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-108",
+      "@type": "rdf:Property",
+      "name": "URLs",
+      "rdfs:comment": "Links to external URLs other than the specific ones lsited above",
+      "rdfs:label": "uRLs"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_6",
+      "name": "McNeil, W.G. (William George)",
+      "@type": "Person",
+      "name_Title": "McNeil",
+      "givenNames": "William George",
+      "sex": {
+        "@id": "#https://expertnation2020.edu.au_414"
+      },
+      "initials": "W.G.",
+      "earlyEducation_place_": {
+        "@id": "#https://expertnation2020.edu.au_24"
+      },
+      "militaryService": {
+        "@id": "#https://expertnation2020.edu.au_56"
+      },
+      "degrees_Sydney_": {
+        "@id": "#https://expertnation2020.edu.au_45"
+      },
+      "birth": {
+        "@id": "#https://expertnation2020.edu.au_12"
+      },
+      "mappingTheAnzaca": "https://discoveringanzacs.naa.gov.au/browse/records/111206",
+      "uRLs": "https://recordsearch.naa.gov.au/SearchNRetrieve/Interface/ViewImage.aspx?B=1957862",
+      "occupation_": {
+        "@id": "#https://expertnation2020.edu.au_73"
+      },
+      "universityConnections": {
+        "@id": "#https://expertnation2020.edu.au_6257"
+      },
+      "survived": {
+        "@id": "#https://expertnation2020.edu.au_6454"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-2",
+      "@type": "rdf:Property",
+      "name": "Short name",
+      "rdfs:comment": "Short or familiar name, phrase or acronym used to identify the represented object/entity",
+      "rdfs:label": "shortName"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/2-28",
+      "@type": "rdf:Property",
+      "name": "Geospatial object",
+      "rdfs:comment": "Geospatial shape associated with the object/entity",
+      "rdfs:label": "geospatialObject"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-144-759351--37-016167-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-144-759351--37-016167-",
+      "latitude": "-37.016167",
+      "longitude": "144.759351"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-101",
+      "@type": "rdf:Property",
+      "name": "Locational certainty",
+      "rdfs:comment": "The confidence with which the location of the place is ascribed",
+      "rdfs:label": "locationalCertainty"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5342",
+      "@type": "CertaintyOfLocalisation",
+      "name": "1. High confidence"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-131",
+      "@type": "rdf:Property",
+      "name": "Accuracy",
+      "rdfs:comment": "The accuracy of the geoographic locations",
+      "rdfs:label": "accuracy"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5354",
+      "@type": "AccuracyOfLocation",
+      "name": "7. To ADM1 eg. state, province, county"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_16",
+      "name": "Victoria [ VIC Australia ]",
+      "@type": "Place",
+      "name_Title": "Victoria",
+      "shortName": "VIC",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-144-759351--37-016167-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5354"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-143-85171083173827--37-564515704861876-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-143-85171083173827--37-564515704861876-",
+      "latitude": "-37.564515704861876",
+      "longitude": "143.85171083173827"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5345",
+      "@type": "CertaintyOfLocalisation",
+      "name": "4. Uncertain"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_33",
+      "name": "Ballarat [ VIC Australia ]",
+      "@type": "Place",
+      "name_Title": "Ballarat",
+      "shortName": "VIC",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-143-85171083173827--37-564515704861876-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-152-6232828--31-4954656-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-152-6232828--31-4954656-",
+      "latitude": "-31.4954656",
+      "longitude": "152.6232828"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_34",
+      "name": "Gannon's Creek [ NSW Australia ]",
+      "@type": "Place",
+      "name_Title": "Gannon's Creek",
+      "shortName": "NSW",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-152-6232828--31-4954656-"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-138-61471613652338--34-95693173206857-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-138-61471613652338--34-95693173206857-",
+      "latitude": "-34.95693173206857",
+      "longitude": "138.61471613652338"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-128",
+      "@type": "rdf:Property",
+      "name": "Excel ID",
+      "rdfs:comment": "The ID in Nyree\\'s places spreadsheet, sheet 1",
+      "rdfs:label": "excelID"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-130",
+      "@type": "rdf:Property",
+      "name": "Geo Source",
+      "rdfs:comment": "The source of the information for geographic location",
+      "rdfs:label": "geoSource"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8611",
+      "@type": "GeoSource",
+      "name": "Yahoo"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_5356",
+      "@type": "AccuracyOfLocation",
+      "name": "3. To named locality"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-132",
+      "@type": "rdf:Property",
+      "name": "Latitude (temp)",
+      "rdfs:comment": "Temporary field to hold latitude",
+      "rdfs:label": "latitude_temp_"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-133",
+      "@type": "rdf:Property",
+      "name": "Longitude - temp",
+      "rdfs:comment": "Temporary field to hold longitude",
+      "rdfs:label": "longitude_Temp"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_50",
+      "name": "Adelaide [ SA Australia ]",
+      "@type": "Place",
+      "name_Title": "Adelaide",
+      "shortName": "SA",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-138-61471613652338--34-95693173206857-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "excelID": "68",
+      "geoSource": {
+        "@id": "#https://expertnation2020.edu.au_8611"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      },
+      "latitude_temp_": "-34.926102",
+      "longitude_Temp": "138.599884"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT--73-425676-40-8681539-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT--73-425676-40-8681539-",
+      "latitude": "40.8681539",
+      "longitude": "-73.425676"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_35",
+      "name": "Huntington [ NSW Australia ]",
+      "@type": "Place",
+      "name_Title": "Huntington",
+      "shortName": "NSW",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT--73-425676-40-8681539-"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-138-688412--34-5276892-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-138-688412--34-5276892-",
+      "latitude": "-34.5276892",
+      "longitude": "138.688412"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-129",
+      "@type": "rdf:Property",
+      "name": "Locality name",
+      "rdfs:comment": "A specific locality name, such as a school or camp, may be missing",
+      "rdfs:label": "localityName"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8608",
+      "@type": "GeoSource",
+      "name": "GE"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_51",
+      "name": "Roseworthy Agricultural College : Roseworthy [ SA Australia ]",
+      "@type": "Place",
+      "name_Title": "Roseworthy",
+      "shortName": "SA",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-138-688412--34-5276892-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "localityName": "Roseworthy Agricultural College",
+      "geoSource": {
+        "@id": "#https://expertnation2020.edu.au_8608"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-152-4951807--31-3725782-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-152-4951807--31-3725782-",
+      "latitude": "-31.3725782",
+      "longitude": "152.4951807"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_36",
+      "name": "Pappinbarra [ NSW Australia ]",
+      "@type": "Place",
+      "name_Title": "Pappinbarra",
+      "shortName": "NSW",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-152-4951807--31-3725782-"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-151-1873473--33-888584-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-151-1873473--33-888584-",
+      "latitude": "-33.888584",
+      "longitude": "151.1873473"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_52",
+      "name": "University of Sydney : Camperdown [ NSW Australia ]",
+      "@type": "Place",
+      "name_Title": "Camperdown",
+      "shortName": "NSW",
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-151-1873473--33-888584-"
+      },
+      "excelID": "49",
+      "localityName": "University of Sydney",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "geoSource": {
+        "@id": "#https://expertnation2020.edu.au_8611"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-138-6189973--34-92271-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-138-6189973--34-92271-",
+      "latitude": "-34.92271",
+      "longitude": "138.6189973"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_37",
+      "name": "Prince Alfred College : Adelaide [ SA Australia ]",
+      "@type": "Place",
+      "name_Title": "Adelaide",
+      "shortName": "SA",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-138-6189973--34-92271-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "localityName": "Prince Alfred College",
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-151-758889--32-940278-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-151-758889--32-940278-",
+      "latitude": "-32.940278",
+      "longitude": "151.758889"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_38",
+      "name": "The Junction [ NSW Australia ]",
+      "@type": "Place",
+      "name_Title": "The Junction",
+      "shortName": "NSW",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-151-758889--32-940278-"
+      }
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-107",
+      "@type": "rdf:Property",
+      "name": "City",
+      "rdfs:comment": "A city or major town",
+      "rdfs:label": "city"
+    },
+    {
+      "@id": "http://expertnation2020.uts.edu.au/vocab/#Property/1125-106",
+      "@type": "rdf:Property",
+      "name": "State",
+      "rdfs:comment": "The state for a place",
+      "rdfs:label": "state"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8598",
+      "@type": "State",
+      "name": "NSW"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_27",
+      "name": "Newcastle High School",
+      "@type": "EducationalOrganization",
+      "name_Title": "Newcastle High School",
+      "city": "Newcastle",
+      "state": {
+        "@id": "#https://expertnation2020.edu.au_8598"
+      },
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_13",
+      "name": "Melbourne [ VIC Australia ]",
+      "@type": "Place",
+      "name_Title": "Melbourne",
+      "shortName": "VIC",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5345"
+      },
+      "excelID": "74",
+      "geoSource": {
+        "@id": "#https://expertnation2020.edu.au_8611"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      },
+      "latitude_temp_": "-37.817532",
+      "longitude_Temp": "144.967148"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-140-7413243--36-9602102-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-140-7413243--36-9602102-",
+      "latitude": "-36.9602102",
+      "longitude": "140.7413243"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_14",
+      "name": "Naracoorte [ SA Australia ]",
+      "@type": "Place",
+      "name_Title": "Naracoorte",
+      "shortName": "SA",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_108"
+      },
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-140-7413243--36-9602102-"
+      },
+      "locationalCertainty": {
+        "@id": "#https://expertnation2020.edu.au_5342"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_5356"
+      }
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_117",
+      "@type": "Country",
+      "name": "New Zealand"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_8606",
+      "@type": "AccuracyOfLocation",
+      "name": "Left blank"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_POINT-172-868332--41-802714-",
+      "@type": "GeoLocation",
+      "name": "#https://expertnation2020.edu.au_POINT-172-868332--41-802714-",
+      "latitude": "-41.802714",
+      "longitude": "172.868332"
+    },
+    {
+      "@id": "#https://expertnation2020.edu.au_15",
+      "name": "New Zealand [ New Zealand ]",
+      "@type": "Place",
+      "name_Title": "New Zealand",
+      "country": {
+        "@id": "#https://expertnation2020.edu.au_117"
+      },
+      "excelID": "1086",
+      "geoSource": {
+        "@id": "#https://expertnation2020.edu.au_8611"
+      },
+      "accuracy": {
+        "@id": "#https://expertnation2020.edu.au_8606"
+      },
+      "latitude_temp_": "-41.802714",
+      "longitude_Temp": "172.868332",
+      "geo": {
+        "@id": "#https://expertnation2020.edu.au_POINT-172-868332--41-802714-"
+      }
+    }
+  ]
+}

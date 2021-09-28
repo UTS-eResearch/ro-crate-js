@@ -72,7 +72,7 @@ describe("Context", function() {
 
 	it("can return locally defined properties and classes", async function () {
 		this.timeout(5000); 
-		const j = fs.readFileSync("test_data/heurist_crate/ro-crate-metadata.json");
+		const j = fs.readFileSync("test_data/heurist_crate/ro-crate-metadata.jsonld");
 		const crate = new ROCrate(JSON.parse(j));
 		crate.index();
 		

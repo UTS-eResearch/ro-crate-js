@@ -1,23 +1,31 @@
 # ro-crate : Research Object Crate (RO-Crate) utilities 
 
-This is an early version ALPHA quality library to support Research Object Crate ([RO-Crate]https://researchobject.github.io/ro-crate/())
+This is a javascript library to support Research Object Crate ([RO-Crate]https://researchobject.github.io/ro-crate/)).
+
+## Install
+Install the library:
+
+`npm install rocrate`
+
+## HTML Renderingv -- DEPRECATED
+
+THIS FEATURE HAS BEEN REMOVED. Use the [RO-Crate-HTML](https://www.npmjs.com/package/ro-crate-html-js) library instead.
+
+## Simple crate checker
+
+There is a script included with this library that can check crates.
+
+Check a crate:
+
+`roccheck /path/to/crate/directory`
+
+This is produce a simple report.
+
+## Programming
+
+For instructions on how to use this module, see the [tutorials github repository](https://github.com/UTS-eResearch/ro-crate-js-tutorials).
 
 
-## HTML Rendering
-
-To render HTML for an RO-Crate, use makehtml, with a URL to the ro-crate.js rendering script. Eg:
-
-```makehtml  test_data/sample-ro-crate-metadata.jsonld  -c https://data.research.uts.edu.au/examples/ro-crate/examples/src/crate.js```
-
-
-
-## Regenerating crate.js
-
-To create the rendering script for an RO-Crate HTML file (ro-crate-preview.html):
-
-```browserify lib/entry.js -o lib/crate.js```
-
-(We will put a copy of this on the RO-Crate site when the spec is released in version 1 and make it the default).
 
 
 
