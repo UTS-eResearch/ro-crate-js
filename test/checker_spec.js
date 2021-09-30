@@ -101,19 +101,19 @@ describe("Incremental checking", function () {
             "@type": "CreativeWork",
             URL: "http://example.com/some_kind_of_license",
         };
-        dataset.license = { "@id": "http://example.com/some_kind_of_license" };
+        dataset.license = { "@id": license["@id"]};
         json["@graph"].push(license);
         var checker = new Checker(new ROCrate(json));
         assert(
-            !checker.hasLicense().status,
-            "Does not have a license with @type CreativeWork"
+            checker.hasLicense().status,
+            "Has a license with @type CreativeWork"
         );
         license.name = "Some license";
         license.description = "Description of at least 20 characters.";
 
         assert(
             checker.hasLicense().status,
-            "Does have a license with @type CreativeWork and a name and descrpition"
+            "Does have a license with @type CreativeWork and a name and descrition"
         );
 
         // datePublished
