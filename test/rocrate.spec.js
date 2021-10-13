@@ -282,6 +282,45 @@ describe("IDs and identifiers", function() {
 		expect(myId2).to.equal(myId);
 	});
 
+
+	it ("can turn an item into a normalized nested object", async function() {
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		const crate = new ROCrate(json);
+		crate.index();
+		const root = crate.getRootDataset();
+		const newItem = crate.graphify(root);
+		assert(Array.isArray(newItem.name));
+		console.log(`Part 0 ${newItem.hasPart[0].name}`);
+		console.log(`Part 1 ${newItem.hasPart[1].name}`);
+		console.log(`Part 1/0 ${newItem.hasPart[1].hasPart[0].name}`);
+
+		console.log(crate.flatify(newItem));
+
+		console.log(crate.flatify(newItem, 2));
+		//console.log(crate.objectified);	
+	  });
+
+
+
+	it ("can find things of interest and put em in a table", async function() {
+		json = JSON.parse(fs.readFileSync("test_data/f2f-ro-crate-metadata.json"));
+		const crate = new ROCrate(json);
+		crate.index();
+		const root = crate.getItem("#interview-#427");
+
+		const newItem = crate.graphify(root);
+		console.log(newItem.name)
+
+		assert(Array.isArray(newItem.name));
+
+		console.log(crate.flatify(newItem, 2));
+
+
+		//console.log(crate.objectified);	
+	  });
+
+	
+
 	it ("can turn a flattened graph into a nested object", async function() {
 	  json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
 	  const crate = new ROCrate(json);
