@@ -283,20 +283,26 @@ describe("IDs and identifiers", function() {
 	});
 
 
-	it ("can turn an item into a normalized nested object", async function() {
+	
+
+
+	it ("can turn a crate into an actual linked (maybe circular javascript object) ", async function() {
 		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
 		const crate = new ROCrate(json);
-		crate.index();
+		crate.index(); // Still needed by the new method
 		const root = crate.getRootDataset();
-		const newItem = crate.graphify(root);
-		assert(Array.isArray(newItem.name));
-		console.log(`Part 0 ${newItem.hasPart[0].name}`);
-		console.log(`Part 1 ${newItem.hasPart[1].name}`);
-		console.log(`Part 1/0 ${newItem.hasPart[1].hasPart[0].name}`);
 
-		console.log(crate.flatify(newItem));
+		crate.toGraph();
+		const lens = crate.getGraphItem("Panny20mm");
 
-		console.log(crate.flatify(newItem, 2));
+		assert.equal(lens.name, "Lumix G 20/F1.7 lens");
+		crate.changeGraphId(lens, "#Lumix G 20/F1.7 lens");
+		assert.equal(lens["@id"], "#Lumix G 20/F1.7 lens");
+
+		const action = crate.getGraphItem("Photo1");
+		assert(action.instrument[0].id = "#Lumix G 20/F1.7 lens")
+		//console.log(crate.__graphIndex);
+		assert.equal(lens._reverse.instrument.name, action.name)
 		//console.log(crate.objectified);	
 	  });
 
