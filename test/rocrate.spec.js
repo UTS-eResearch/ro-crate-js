@@ -86,7 +86,6 @@ describe("Context", function() {
 		assert.equal(crate.getDefinition("new_term")["@id"], "http://schema.org/name")
 
 
-
 	
 		  });
 
@@ -223,7 +222,7 @@ describe("IDs and identifiers", function() {
 
 	it("can add an identifier to the root dataset", function() {
 		const crate = newCrate();
-		crate.index();
+		//crate.index();
 		const myId = uuid();
 		const idCreated= crate.addIdentifier({
 			'identifier': myId,
@@ -289,20 +288,32 @@ describe("IDs and identifiers", function() {
 	it ("can turn a crate into an actual linked (maybe circular javascript object) ", async function() {
 		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
 		const crate = new ROCrate(json);
-		crate.index(); // Still needed by the new method
-		const root = crate.getRootDataset();
-
 		crate.toGraph();
-		const lens = crate.getGraphItem("Panny20mm");
+		const lens = crate.getItem("Panny20mm");
 
 		assert.equal(lens.name, "Lumix G 20/F1.7 lens");
-		crate.changeGraphId(lens, "#Lumix G 20/F1.7 lens");
-		assert.equal(lens["@id"], "#Lumix G 20/F1.7 lens");
+		crate.changeGraphId(lens, "#Panny20mm");
+		assert.equal(lens["@id"], "#Panny20mm");
 
-		const action = crate.getGraphItem("Photo1");
-		assert(action.instrument[0].id = "#Lumix G 20/F1.7 lens")
-		//console.log(crate.__graphIndex);
-		assert.equal(lens._reverse.instrument.name, action.name)
+		const action = crate.getItem("Photo1");
+		assert.equal(action.instrument[1]["@id"], "#Panny20mm")
+		assert.equal(lens._reverse.instrument[0].name, action.name)
+
+		const newItem = {"@id": "#ABetterLens", "@type": "IndividualProduct", "name": "super lens"}
+
+		crate.addItem(newItem);
+
+		const getNewItemBack = crate.getItem("#ABetterLens");
+		assert.equal(newItem.name, getNewItemBack.name);
+		crate.addValue(action.instrument, newItem);
+		assert.equal(action.instrument[2].name, "super lens");
+		fs.writeFileSync("test.json", JSON.stringify(crate.getJson(), null, 2));
+
+		const newCrate = new ROCrate(crate.getJson());
+
+		newCrate.toGraph();
+		const newRoot = newCrate.getRootDataset();
+		assert.equal(newRoot.name, 'Sample dataset for RO-Crate v0.2')
 		//console.log(crate.objectified);	
 	  });
 
@@ -311,17 +322,13 @@ describe("IDs and identifiers", function() {
 	it ("can find things of interest and put em in a table", async function() {
 		json = JSON.parse(fs.readFileSync("test_data/f2f-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
-		crate.index();
-		const root = crate.getItem("#interview-#427");
+		crate.toGraph();
+		const newItem = crate.getItem("#interview-#427");
 
-		const newItem = crate.graphify(root);
 		console.log(newItem.name)
 
 		assert(Array.isArray(newItem.name));
-
 		console.log(crate.flatify(newItem, 2));
-
-
 		//console.log(crate.objectified);	
 	  });
 

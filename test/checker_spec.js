@@ -27,7 +27,7 @@ describe("Incremental checking", function () {
         //json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
         var crate = new ROCrate();
         var checker = new Checker(crate);
-        var json = crate.json_ld; // should be a minimal viable datacrate
+        var json = crate.getJson(); // should be a minimal viable datacrate
         delete json["@context"];
         assert(!checker.hasContext().status, "Does not have a @context");
         // Now with context
