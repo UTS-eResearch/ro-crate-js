@@ -336,10 +336,10 @@ describe("IDs and identifiers", function() {
 		crate.toGraph();
 		const newItem = crate.getItem("#interview-#427");
 
-		console.log(newItem.name)
+		//console.log(newItem.name)
 
 		assert(Array.isArray(newItem.name));
-		console.log(crate.flatify(newItem, 2));
+		//consol.og(crate.flatify(newItem, 2));
 		//console.log(crate.objectified);	
 	  });
 
