@@ -300,20 +300,31 @@ describe("IDs and identifiers", function() {
 		assert.equal(lens._reverse.instrument[0].name, action.name)
 
 		const newItem = {"@id": "#ABetterLens", "@type": "IndividualProduct", "name": "super lens"}
-
 		crate.addItem(newItem);
-
 		const getNewItemBack = crate.getItem("#ABetterLens");
-		assert.equal(newItem.name, getNewItemBack.name);
-		crate.addValue(action.instrument, newItem);
+
+		const newItem1 = {"@id": "#BestLens", "@type": "IndividualProduct", "name": "bestest lens"}
+		
+		const getNewItem1Back = crate.getItem("#BestLens");
+		// Did not add newItem1 to the crate
+		assert.equal(getNewItemBack.name,  "super lens");
+
+		assert.equal(getNewItem1Back, undefined);
+		crate.pushValue(action.instrument, newItem);
+		crate.pushValue(action.instrument, newItem1);
+
 		assert.equal(action.instrument[2].name, "super lens");
+		assert.equal(action.instrument[3].name, "bestest lens");
+
 		fs.writeFileSync("test.json", JSON.stringify(crate.getJson(), null, 2));
-
 		const newCrate = new ROCrate(crate.getJson());
-
 		newCrate.toGraph();
 		const newRoot = newCrate.getRootDataset();
-		assert.equal(newRoot.name, 'Sample dataset for RO-Crate v0.2')
+		assert.equal(newRoot.name, 'Sample dataset for RO-Crate v0.2');
+		const getNewItem1BackAgain = crate.getItem("#BestLens");
+
+
+
 		//console.log(crate.objectified);	
 	  });
 
