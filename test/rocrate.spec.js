@@ -23,6 +23,7 @@ const ROCrate = require("../lib/rocrate");
 const jsonUtils = require("../lib/utils");
 const defaults = require("../lib/defaults");
 const uuid = require('uuid').v4;
+const { create } = require("lodash");
 
 
 function newCrate(graph) {
@@ -48,7 +49,7 @@ describe("Simple tests", function () {
 	crate.index();
 	const rootDataset = crate.getRootDataset();
     assert(utils.hasType(rootDataset, "Dataset"));
-    assert.equal(crate.utils.asArray(crate.json_ld["@context"])[0] , "https://w3id.org/ro/crate/1.1/context", "Has standard context (defined in ./lib/defaults.js)")
+    assert.equal(crate.utils.asArray(crate.getJson()["@context"])[0] , "https://w3id.org/ro/crate/1.1/context", "Has standard context (defined in ./lib/defaults.js)")
 	
 	done();
   });
@@ -63,7 +64,7 @@ describe("Context", function() {
 	  await crate.resolveContext();
 	  assert.equal(crate.resolveTerm("name"), "http://schema.org/name")
 	  assert.equal(crate.resolveTerm("@vocab"), "http://schema.org/")
-	  crate.json_ld["@context"][1]["new_term"] = "http://example.com/new_term"
+	  crate.getJson()["@context"][1]["new_term"] = "http://example.com/new_term"
 	  await crate.resolveContext();
 	  assert.equal(crate.resolveTerm("new_term"), "http://example.com/new_term")
 
@@ -79,7 +80,7 @@ describe("Context", function() {
 		await crate.resolveContext();
 		assert.equal(crate.getDefinition("name")["@id"], "http://schema.org/name")
 		assert.equal(crate.getDefinition("Death")["rdfs:label"], "Death")
-		crate.json_ld["@context"][1]["new_term"] = "http://example.com/new_term"
+		crate.getJson()["@context"][1]["new_term"] = "http://example.com/new_term"
 		await crate.resolveContext();
 		assert.equal(crate.getDefinition("new_term")["@id"], "http://example.com/new_term")
 		crate.addItem({"@id": "http://example.com/new_term", "sameAs": {"@id": "http://schema.org/name"}})
@@ -100,7 +101,7 @@ describe("Context", function() {
 	  // No Dataset
 	  const crate = new ROCrate();
 	  crate.index();
-	  crate.json_ld["@context"] = "http://schema.org/"
+	  crate.__json_ld["@context"] = "http://schema.org/"
 	  await crate.resolveContext();
 	  assert.equal(crate.resolveTerm("name"), "http://schema.org/name")
 	  assert.equal(crate.resolveTerm("@vocab"), "http://schema.org/")
@@ -164,7 +165,7 @@ describe("IDs and identifiers", function() {
 			expect(success).to.be.true;
 		});
 
-		expect(crate.graph).to.have.lengthOf(N + 2) //+1 Cos of root metdata file descriptor;
+		expect(crate.getGraph()).to.have.lengthOf(N + 2) //+1 Cos of root metdata file descriptor;
 	});
 
 	it("Can resolve stuff", async function () {
@@ -310,18 +311,23 @@ describe("IDs and identifiers", function() {
 		assert.equal(getNewItemBack.name,  "super lens");
 
 		assert.equal(getNewItem1Back, undefined);
+
 		crate.pushValue(action.instrument, newItem);
 		crate.pushValue(action.instrument, newItem1);
+
+		assert.equal(crate.getItem("#BestLens").name, "bestest lens");
 
 		assert.equal(action.instrument[2].name, "super lens");
 		assert.equal(action.instrument[3].name, "bestest lens");
 
 		fs.writeFileSync("test.json", JSON.stringify(crate.getJson(), null, 2));
+
 		const newCrate = new ROCrate(crate.getJson());
 		newCrate.toGraph();
 		const newRoot = newCrate.getRootDataset();
 		assert.equal(newRoot.name, 'Sample dataset for RO-Crate v0.2');
 		const getNewItem1BackAgain = crate.getItem("#BestLens");
+		assert.equal(getNewItem1BackAgain.name, "bestest lens");
 
 
 
@@ -340,6 +346,21 @@ describe("IDs and identifiers", function() {
 
 		assert(Array.isArray(newItem.name));
 		//consol.og(crate.flatify(newItem, 2));
+		//console.log(crate.objectified);	
+	  });
+
+	  it ("can rename IDs", async function() {
+		json = JSON.parse(fs.readFileSync("test_data/f2f-ro-crate-metadata.json"));
+		const crate = new ROCrate(json);
+		crate.toGraph();
+
+		const newItem = crate.getItem("#interview-#429");
+		const fileItem = crate.getItem("files/429/original_301212cc7bd4fa7dd92c08f24f210069.csv")
+		assert.equal(newItem.hasFile[5]["@id"],"files/429/original_301212cc7bd4fa7dd92c08f24f210069.csv" )
+		crate.changeGraphId(fileItem, "new-file-id.csv");
+		assert.equal(newItem.hasFile[5]["@id"],"new-file-id.csv" )
+
+	//consol.og(crate.flatify(newItem, 2));
 		//console.log(crate.objectified);	
 	  });
 
@@ -367,6 +388,20 @@ describe("IDs and identifiers", function() {
 		//console.log(JSON.stringify(crate.objectified,null,2));
 		assert.equal(crate.objectified.creator[0].name[0], "Peter Sefton")
 	  });
+
+
+
+	it ("it can add nested objects", async function() {
+		const crate = new ROCrate();
+		crate.toGraph();
+		const root = crate.getRootDataset();
+		crate.pushValue(root.creator, 
+			{"@id": "#pt", "name": "Petie", "affiliation": {"@id": "#home", "name": "home"}})
+		assert.equal(crate.getItem("#pt").name, "Petie");
+		assert.equal(crate.getItem("#pt").affiliation[0].name, "home");
+
+	  });
+
 
 });
 
