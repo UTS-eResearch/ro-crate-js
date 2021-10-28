@@ -199,7 +199,36 @@ describe("IDs and identifiers", function() {
 		
 	);
 
-	it("can cope with legcy datasets", function () {
+	it("Can resolve stuff after it's turned into a graph with .toGraph()", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		const crate = new ROCrate(json);
+		crate.toGraph();
+		const root = crate.getRootDataset();
+		const results = crate.resolve(root, [{"property": "creator"}]);
+		expect(results[0].name[0]).to.equal("Peter Sefton");
+		const actions = crate.resolve(root, [{"property": "creator"}, {"@reverse": true, "property": "agent"}]);
+		expect(actions.length).to.equal(2);
+		expect(actions[0].name[0]).to.equal("Took dog picture");
+
+		const newAction = {
+			"@id": "#1",
+			"@type": "UpdateAction",
+			"agent": { '@id': 'http://orcid.org/0000-0002-3545-944X'}
+		}
+		crate.addItem(newAction);
+		crate.addBackLinks(); // This won't do anything as we're in graph mode but leaving it in to show that nothing breaks
+		const upActions = crate.resolve(root, [
+				{"property": "creator"}, 
+				{"@reverse": true, "property": "agent", "includes": {"@type": "UpdateAction"}}
+			]);
+		expect(upActions.length).to.equal(1);
+
+		
+		}
+		
+	);
+
+	it("can cope with legacy datasets", function () {
 		const roCrateMetadataID = "ro-crate-metadata.jsonld";
 		const json_ld = {
 			"@context": defaults.context,
@@ -298,7 +327,7 @@ describe("IDs and identifiers", function() {
 
 		const action = crate.getItem("Photo1");
 		assert.equal(action.instrument[1]["@id"], "#Panny20mm")
-		assert.equal(lens._reverse.instrument[0].name, action.name)
+		assert.equal(lens["@reverse"].instrument[0].name, action.name)
 
 		const newItem = {"@id": "#ABetterLens", "@type": "IndividualProduct", "name": "super lens"}
 		crate.addItem(newItem);
@@ -359,6 +388,7 @@ describe("IDs and identifiers", function() {
 		assert.equal(newItem.hasFile[5]["@id"],"files/429/original_301212cc7bd4fa7dd92c08f24f210069.csv" )
 		crate.changeGraphId(fileItem, "new-file-id.csv");
 		assert.equal(newItem.hasFile[5]["@id"],"new-file-id.csv" )
+		console.log(fileItem);
 
 	//consol.og(crate.flatify(newItem, 2));
 		//console.log(crate.objectified);	
