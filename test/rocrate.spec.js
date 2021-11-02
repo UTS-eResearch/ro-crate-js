@@ -50,6 +50,8 @@ describe("Simple tests", function () {
     assert(utils.hasType(rootDataset, "Dataset"));
     assert.equal(crate.utils.asArray(crate.json_ld["@context"])[0] , "https://w3id.org/ro/crate/1.1/context", "Has standard context (defined in ./lib/defaults.js)")
 	
+	const metadataFileDescriptor = crate.getItem("ro-crate-metadata.json");
+	assert.equal(metadataFileDescriptor.conformsTo[0]["@id"], "https://w3id.org/ro/crate/1.1")
 	done();
   });
 });
