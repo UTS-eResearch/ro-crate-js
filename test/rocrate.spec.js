@@ -378,7 +378,7 @@ describe("IDs and identifiers", function() {
 		//console.log(crate.objectified);	
 	  });
 
-	  it ("can rename IDs", async function() {
+	  it ("can rename IDs", async function(done) {
 		json = JSON.parse(fs.readFileSync("test_data/f2f-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
 		crate.toGraph();
@@ -390,8 +390,9 @@ describe("IDs and identifiers", function() {
 		assert.equal(newItem.hasFile[5]["@id"],"new-file-id.csv" )
 		console.log(fileItem);
 
-	//consol.og(crate.flatify(newItem, 2));
+		//consol.og(crate.flatify(newItem, 2));
 		//console.log(crate.objectified);	
+		done();
 	  });
 
 	
