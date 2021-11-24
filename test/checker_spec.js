@@ -94,8 +94,16 @@ describe("Incremental checking", function () {
         // No name, description
         assert(
             !checker.hasLicense().status,
-            "Does not have a license with @type CreativeWork"
+            "Does not have a license"
         );
+        dataset.license = "CC BY 4.0";
+
+
+        assert(
+            checker.hasLicense().status,
+            "Has a license"
+        );
+
         var license = {
             "@id": "http://example.com/some_kind_of_license",
             "@type": "CreativeWork",
@@ -113,7 +121,7 @@ describe("Incremental checking", function () {
 
         assert(
             checker.hasLicense().status,
-            "Does have a license with @type CreativeWork and a name and descrition"
+            "Does have a license with @type CreativeWork and a name and description"
         );
 
         // datePublished
