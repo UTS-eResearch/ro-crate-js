@@ -58,6 +58,8 @@ describe("Simple tests", function () {
 
 describe("Context", function() {
 	it("can read context", async function () {
+
+	// TODO : This should be deprecated - accessing the JSON-LD like that is very naughty
 	  this.timeout(5000); 
 	  // No Dataset
 	  const crate = new ROCrate();
@@ -65,12 +67,16 @@ describe("Context", function() {
 	  await crate.resolveContext();
 	  assert.equal(crate.resolveTerm("name"), "http://schema.org/name")
 	  assert.equal(crate.resolveTerm("@vocab"), "http://schema.org/")
-	  crate.json_ld["@context"][1]["new_term"] = "http://example.com/new_term"
-	  await crate.resolveContext();
+
+	  crate.addContext({"new_term": "http://example.com/new_term"});
+	  
 	  assert.equal(crate.resolveTerm("new_term"), "http://example.com/new_term")
 
 
+
 	});
+
+
 
 	it("can return locally defined properties and classes", async function () {
 		this.timeout(5000); 
@@ -86,7 +92,6 @@ describe("Context", function() {
 		assert.equal(crate.getDefinition("new_term")["@id"], "http://example.com/new_term")
 		crate.addItem({"@id": "http://example.com/new_term", "sameAs": {"@id": "http://schema.org/name"}})
 		assert.equal(crate.getDefinition("new_term")["@id"], "http://schema.org/name")
-
 
 
 	
@@ -201,7 +206,7 @@ describe("IDs and identifiers", function() {
 		
 	);
 
-	it("can cope with legcy datasets", function () {
+	it("can cope with legacy datasets", function () {
 		const roCrateMetadataID = "ro-crate-metadata.jsonld";
 		const json_ld = {
 			"@context": defaults.context,
