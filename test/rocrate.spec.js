@@ -73,7 +73,7 @@ describe("Context", function() {
 
 	it("can return locally defined properties and classes", async function () {
 		this.timeout(5000); 
-		const j = fs.readFileSync("test_data/heurist_crate/ro-crate-metadata.jsonld");
+		const j = fs.readFileSync("test_data/heurist_crate/ro-crate-metadata.json");
 		const crate = new ROCrate(JSON.parse(j));
 		crate.index();
 		
@@ -169,14 +169,14 @@ describe("IDs and identifiers", function() {
 	});
 
 	it("Can resolve stuff", async function () {
-		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
 		crate.index();
 		crate.addBackLinks();
 		const root = crate.getRootDataset();
-		const results = crate.resolve(root, [{"property": "creator"}]);
+		const results = crate.resolve(root, [{"property": "author"}]);
 		expect(results[0].name).to.equal("Peter Sefton");
-		const actions = crate.resolve(root, [{"property": "creator"}, {"@reverse": true, "property": "agent"}]);
+		const actions = crate.resolve(root, [{"property": "author"}, {"@reverse": true, "property": "agent"}]);
 		expect(actions.length).to.equal(2);
 		expect(actions[0].name).to.equal("Took dog picture");
 
@@ -189,7 +189,7 @@ describe("IDs and identifiers", function() {
 		crate.addBackLinks();
 
 		const upActions = crate.resolve(root, [
-				{"property": "creator"}, 
+				{"property": "author"}, 
 				{"@reverse": true, "property": "agent", "includes": {"@type": "UpdateAction"}}
 			]);
 		expect(upActions.length).to.equal(1);
@@ -200,13 +200,13 @@ describe("IDs and identifiers", function() {
 	);
 
 	it("Can resolve stuff after it's turned into a graph with .toGraph()", async function () {
-		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
 		crate.toGraph();
 		const root = crate.getRootDataset();
-		const results = crate.resolve(root, [{"property": "creator"}]);
+		const results = crate.resolve(root, [{"property": "author"}]);
 		expect(results[0].name[0]).to.equal("Peter Sefton");
-		const actions = crate.resolve(root, [{"property": "creator"}, {"@reverse": true, "property": "agent"}]);
+		const actions = crate.resolve(root, [{"property": "author"}, {"@reverse": true, "property": "agent"}]);
 		expect(actions.length).to.equal(2);
 		expect(actions[0].name[0]).to.equal("Took dog picture");
 
@@ -218,7 +218,7 @@ describe("IDs and identifiers", function() {
 		crate.addItem(newAction);
 		crate.addBackLinks(); // This won't do anything as we're in graph mode but leaving it in to show that nothing breaks
 		const upActions = crate.resolve(root, [
-				{"property": "creator"}, 
+				{"property": "author"}, 
 				{"@reverse": true, "property": "agent", "includes": {"@type": "UpdateAction"}}
 			]);
 		expect(upActions.length).to.equal(1);
@@ -228,8 +228,21 @@ describe("IDs and identifiers", function() {
 		
 	);
 
+	it("Can create a JSON-serializable tree object (for indexing and display)", async function () {
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
+		const crate = new ROCrate(json);
+		crate.toGraph();
+		const root = crate.getRootDataset();
+		const newItem = crate.getNormalizedTree(root, 2);
+		console.log(JSON.stringify(newItem, null, 2));
+		expect(newItem.author[0].name[0]["@value"]).to.equal("Peter Sefton")
+
+		}
+		
+	);
+
 	it("can cope with legacy datasets", function () {
-		const roCrateMetadataID = "ro-crate-metadata.jsonld";
+		const roCrateMetadataID = "ro-crate-metadata.json";
 		const json_ld = {
 			"@context": defaults.context,
 			"@graph":  [
@@ -316,7 +329,7 @@ describe("IDs and identifiers", function() {
 
 
 	it ("can turn a crate into an actual linked (maybe circular javascript object) ", async function() {
-		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
 		crate.toGraph();
 		const lens = crate.getItem("Panny20mm");
@@ -398,7 +411,7 @@ describe("IDs and identifiers", function() {
 	
 
 	it ("can turn a flattened graph into a nested object", async function() {
-	  json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+	  json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
 	  const crate = new ROCrate(json);
 	  crate.objectify();
 	  assert(Array.isArray(crate.objectified.name))
@@ -409,15 +422,15 @@ describe("IDs and identifiers", function() {
 	
 
 	it ("it doesn't die if you feed it circular references", async function() {
-		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.jsonld"));
+		json = JSON.parse(fs.readFileSync("test_data/sample-ro-crate-metadata.json"));
 		const crate = new ROCrate(json);
 		crate.index();
 		const root = crate.getRootDataset();
-		const creator = crate.getItem(root.creator["@id"]);
-		creator.partOf = [{"@id": "./"}];
+		const author = crate.getItem(root.author["@id"]);
+		author.partOf = [{"@id": "./"}];
 		crate.objectify();
 		//console.log(JSON.stringify(crate.objectified,null,2));
-		assert.equal(crate.objectified.creator[0].name[0], "Peter Sefton")
+		assert.equal(crate.objectified.author[0].name[0], "Peter Sefton")
 	  });
 
 
@@ -426,7 +439,7 @@ describe("IDs and identifiers", function() {
 		const crate = new ROCrate();
 		crate.toGraph();
 		const root = crate.getRootDataset();
-		crate.pushValue(root.creator, 
+		crate.pushValue(root.author, 
 			{"@id": "#pt", "name": "Petie", "affiliation": {"@id": "#home", "name": "home"}})
 		assert.equal(crate.getItem("#pt").name, "Petie");
 		assert.equal(crate.getItem("#pt").affiliation[0].name, "home");
