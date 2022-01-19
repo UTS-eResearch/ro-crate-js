@@ -367,8 +367,8 @@ describe("IDs and identifiers", function() {
 
 		assert.equal(getNewItem1Back, undefined);
 
-		crate.pushValue(action.instrument, newItem);
-		crate.pushValue(action.instrument, newItem1);
+		crate.pushValue(action, "instrument", newItem);
+		crate.pushValue(action, "instrument", newItem1);
 
 		assert.equal(crate.getItem("#BestLens").name, "bestest lens");
 
@@ -452,7 +452,7 @@ describe("IDs and identifiers", function() {
 		const crate = new ROCrate();
 		crate.toGraph();
 		const root = crate.getRootDataset();
-		crate.pushValue(root.author, 
+		crate.pushValue(root, "author", 
 			{"@id": "#pt", "name": "Petie", "affiliation": {"@id": "#home", "name": "home"}})
 		assert.equal(crate.getItem("#pt").name, "Petie");
 		assert.equal(crate.getItem("#pt").affiliation[0].name, "home");
