@@ -241,6 +241,19 @@ describe("IDs and identifiers", function() {
 		
 	);
 
+	it("Can create JSON-serializable tree objects from scratch (for indexing and display)", async function () {
+		const crate = new ROCrate();
+		crate.toGraph();
+		const root = crate.getRootDataset();
+		crate.pushValue(root, "name", 'This is my name')
+		const newItem = crate.getNormalizedTree(root, 1);
+		console.log(JSON.stringify(newItem, null, 2));
+		expect(newItem.name[0]["@value"]).to.equal("This is my name")
+
+		}
+		
+	);
+
 	it("can cope with legacy datasets", function () {
 		const roCrateMetadataID = "ro-crate-metadata.json";
 		const json_ld = {
