@@ -370,6 +370,15 @@ describe("IDs and identifiers", function() {
 		crate.pushValue(action, "instrument", newItem);
 		crate.pushValue(action, "instrument", newItem1);
 
+		const numOfInstruments = action.instrument.length;
+		crate.pushValue(action, "instrument", newItem1);
+		// Check that it does not let you add the same item twice 
+		assert.equal(numOfInstruments, action.instrument.length);
+		// But it will allow a duplicate with the Allowduplicates flag 
+		crate.pushValue(action, "instrument", newItem1,  true);
+		assert.equal(numOfInstruments + 1, action.instrument.length);
+
+
 		assert.equal(crate.getItem("#BestLens").name, "bestest lens");
 
 		assert.equal(action.instrument[2].name, "super lens");
@@ -383,6 +392,8 @@ describe("IDs and identifiers", function() {
 		assert.equal(newRoot.name, 'Sample dataset for RO-Crate v0.2');
 		const getNewItem1BackAgain = crate.getItem("#BestLens");
 		assert.equal(getNewItem1BackAgain.name, "bestest lens");
+
+		console.log(action.instrument);
 
 
 
