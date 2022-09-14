@@ -1,3 +1,6 @@
+## Important Notice:
+> The active fork of this repo is https://github.com/Arkisto-Platform/ro-crate-js and development efforts should be focused over there.
+
 # ro-crate : Research Object Crate (RO-Crate) utilities 
 
 This is a javascript library to support Research Object Crate ([RO-Crate]https://researchobject.github.io/ro-crate/)).
